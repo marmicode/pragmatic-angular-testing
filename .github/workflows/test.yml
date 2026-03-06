@@ -5,9 +5,9 @@ on:
 jobs:
   build:
     name: 📦 Build
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Setup
@@ -16,9 +16,9 @@ jobs:
 
   lint:
     name: 🧹 Lint
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Setup
@@ -27,9 +27,9 @@ jobs:
 
   sanity-check:
     name: 🧹 Sanity Check
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Setup
@@ -38,9 +38,9 @@ jobs:
 
   jest:
     name: 🎪 Jest
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Setup
@@ -49,9 +49,9 @@ jobs:
 
   test:
     name: ⚡️ Vitest
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Setup
@@ -60,9 +60,9 @@ jobs:
 
   testronaut:
     name: 🧑‍🚀 Testronaut
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Setup
@@ -81,7 +81,7 @@ jobs:
   deploy-gh-pages:
     name: 🚀 Deploy to GitHub Pages
     if: github.ref == 'refs/heads/main'
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-24.04
     needs:
       - build
       - jest
@@ -96,7 +96,7 @@ jobs:
       pages: write
       id-token: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Setup

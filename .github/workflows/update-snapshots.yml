@@ -5,16 +5,16 @@ on:
 jobs:
   update-snapshots:
     name: 🌅 Update Snapshots
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Setup
         uses: ./.github/actions/setup
 
       - name: Playwright browsers install
-        run: pnpm playwright install --with-deps
+        run: pnpm playwright install --with-deps --only-shell
 
       - run: pnpm nx run-many --parallel=1 -t testronaut --update-snapshots
 
