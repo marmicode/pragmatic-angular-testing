@@ -97,11 +97,11 @@ importers:
         specifier: 2.1.3
         version: 2.1.3(rxjs@7.8.1)
       '@jscutlery/swc-angular':
-        specifier: 0.19.4
-        version: 0.19.4(@jscutlery/swc-angular-plugin@0.19.4)(@swc/core@1.10.18(@swc/helpers@0.5.17))
+        specifier: 0.22.0
+        version: 0.22.0(@jscutlery/swc-angular-plugin@0.22.0)(@swc/core@1.10.18(@swc/helpers@0.5.17))
       '@jscutlery/swc-angular-plugin':
-        specifier: 0.19.4
-        version: 0.19.4
+        specifier: 0.22.0
+        version: 0.22.0
       '@nx/devkit':
         specifier: 21.5.2
         version: 21.5.2(nx@21.5.2(@swc-node/register@1.9.2(@swc/core@1.10.18(@swc/helpers@0.5.17))(@swc/types@0.1.19)(typescript@5.9.2))(@swc/core@1.10.18(@swc/helpers@0.5.17)))
@@ -3290,14 +3290,14 @@ packages:
     peerDependencies:
       rxjs: '>=6.0.0'
 
-  '@jscutlery/swc-angular-plugin@0.19.4':
-    resolution: {integrity: sha512-YFmWAU16+mMkH1QNSbHQXbibr/8aZYfKUWnWcuFLFBUCLvfxCQJzzLLEKyGnKs4+u/2HbvruqLob4Pvj8OrdsQ==}
+  '@jscutlery/swc-angular-plugin@0.22.0':
+    resolution: {integrity: sha512-8W28ZnygHNlnUsu3iO7N1tmyO3c6wV/Zl8MPzfIbNfeRWC3fJMuD74mJ6vkJkERVEmd1XegJXBmXmi/wf0/1nQ==}
 
-  '@jscutlery/swc-angular@0.19.4':
-    resolution: {integrity: sha512-+XJ+zYQG7xe6A6huvewYPTbvxBpdt34CRgmbsJfumo0P1ZFoylwm2q0Hu9u4ilwpWjppl1ajn4azR09tNVtH8A==}
+  '@jscutlery/swc-angular@0.22.0':
+    resolution: {integrity: sha512-g1qXhOoJiKiT9ddyAl7XhhN/0ruvrElPnlJtFUSzVHWiISMraHJPFF25ZddXeHjSPKzosXhtY5xM23UD+Eks4w==}
     peerDependencies:
       '@jscutlery/swc-angular-plugin': '>=0.11.0 <1.0.0'
-      '@swc/core': ~1.10.0
+      '@swc/core': ~1.15.0
 
   '@jsonjoy.com/base64@1.1.2':
     resolution: {integrity: sha512-q6XAnWQDIMA3+FTiOYajoYqySkO+JSat0ytXGSuRdq9uXE7o92gzuQwQM14xaCRlBLGq3v5miDGC4vkVTn54xA==}
@@ -16665,11 +16665,11 @@ snapshots:
     dependencies:
       rxjs: 7.8.1
 
-  '@jscutlery/swc-angular-plugin@0.19.4': {}
+  '@jscutlery/swc-angular-plugin@0.22.0': {}
 
-  '@jscutlery/swc-angular@0.19.4(@jscutlery/swc-angular-plugin@0.19.4)(@swc/core@1.10.18(@swc/helpers@0.5.17))':
+  '@jscutlery/swc-angular@0.22.0(@jscutlery/swc-angular-plugin@0.22.0)(@swc/core@1.10.18(@swc/helpers@0.5.17))':
     dependencies:
-      '@jscutlery/swc-angular-plugin': 0.19.4
+      '@jscutlery/swc-angular-plugin': 0.22.0
       '@swc/core': 1.10.18(@swc/helpers@0.5.17)
 
   '@jsonjoy.com/base64@1.1.2(tslib@2.8.1)':
