@@ -122,7 +122,7 @@ importers:
         version: 22.5.4(@babel/traverse@7.29.0)(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@swc/types@0.1.25)(typescript@5.9.2))(@swc/core@1.15.8(@swc/helpers@0.5.19))(@types/node@20.19.9)(@zkochan/js-yaml@0.0.7)(babel-plugin-macros@3.1.0)(eslint@9.38.0(jiti@2.4.2))(nx@22.5.4(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@swc/types@0.1.25)(typescript@5.9.2))(@swc/core@1.15.8(@swc/helpers@0.5.19)))(ts-node@10.9.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@types/node@20.19.9)(typescript@5.9.2))(typescript@5.9.2)
       '@nx/playwright':
         specifier: 22.5.4
-        version: 22.5.4(@babel/traverse@7.29.0)(@playwright/test@1.56.1)(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@swc/types@0.1.25)(typescript@5.9.2))(@swc/core@1.15.8(@swc/helpers@0.5.19))(@zkochan/js-yaml@0.0.7)(eslint@9.38.0(jiti@2.4.2))(nx@22.5.4(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@swc/types@0.1.25)(typescript@5.9.2))(@swc/core@1.15.8(@swc/helpers@0.5.19)))
+        version: 22.5.4(@babel/traverse@7.29.0)(@playwright/test@1.58.2)(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@swc/types@0.1.25)(typescript@5.9.2))(@swc/core@1.15.8(@swc/helpers@0.5.19))(@zkochan/js-yaml@0.0.7)(eslint@9.38.0(jiti@2.4.2))(nx@22.5.4(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@swc/types@0.1.25)(typescript@5.9.2))(@swc/core@1.15.8(@swc/helpers@0.5.19)))
       '@nx/vite':
         specifier: 22.5.4
         version: 22.5.4(@babel/traverse@7.29.0)(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@swc/types@0.1.25)(typescript@5.9.2))(@swc/core@1.15.8(@swc/helpers@0.5.19))(nx@22.5.4(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@swc/types@0.1.25)(typescript@5.9.2))(@swc/core@1.15.8(@swc/helpers@0.5.19)))(typescript@5.9.2)(vite@7.1.5(@types/node@20.19.9)(jiti@2.4.2)(less@4.4.2)(sass-embedded@1.92.1)(sass@1.92.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.19.4)(yaml@2.7.0))(vitest@4.0.18)
@@ -139,8 +139,8 @@ importers:
         specifier: 1.17.0
         version: 1.17.0
       '@playwright/test':
-        specifier: 1.56.1
-        version: 1.56.1
+        specifier: 1.58.2
+        version: 1.58.2
       '@schematics/angular':
         specifier: 21.1.5
         version: 21.1.5(chokidar@5.0.0)
@@ -170,10 +170,10 @@ importers:
         version: 14.6.1(@testing-library/dom@10.4.1)
       '@testronaut/angular':
         specifier: 0.0.11
-        version: 0.0.11(@angular/compiler@21.1.6)(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1))(@angular/platform-browser@21.1.6(@angular/animations@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1)))(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1))(rxjs@7.8.1))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1)))(@testronaut/core@0.0.11(@playwright/test@1.56.1))
+        version: 0.0.11(@angular/compiler@21.1.6)(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1))(@angular/platform-browser@21.1.6(@angular/animations@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1)))(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1))(rxjs@7.8.1))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1)))(@testronaut/core@0.0.11(@playwright/test@1.58.2))
       '@testronaut/core':
         specifier: 0.0.11
-        version: 0.0.11(@playwright/test@1.56.1)
+        version: 0.0.11(@playwright/test@1.58.2)
       '@types/jest':
         specifier: 30.0.0
         version: 30.0.0
@@ -185,7 +185,7 @@ importers:
         version: 8.46.2(eslint@9.38.0(jiti@2.4.2))(typescript@5.9.2)
       '@vitest/browser-playwright':
         specifier: 4.0.18
-        version: 4.0.18(playwright@1.56.1)(vite@7.1.5(@types/node@20.19.9)(jiti@2.4.2)(less@4.4.2)(sass-embedded@1.92.1)(sass@1.92.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.19.4)(yaml@2.7.0))(vitest@4.0.18)
+        version: 4.0.18(playwright@1.58.2)(vite@7.1.5(@types/node@20.19.9)(jiti@2.4.2)(less@4.4.2)(sass-embedded@1.92.1)(sass@1.92.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.19.4)(yaml@2.7.0))(vitest@4.0.18)
       '@vitest/coverage-v8':
         specifier: 4.0.18
         version: 4.0.18(@vitest/browser@4.0.18(vite@7.1.5(@types/node@20.19.9)(jiti@2.4.2)(less@4.4.2)(sass-embedded@1.92.1)(sass@1.92.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.19.4)(yaml@2.7.0))(vitest@4.0.18))(vitest@4.0.18)
@@ -3958,8 +3958,8 @@ packages:
     resolution: {integrity: sha512-QNqXyfVS2wm9hweSYD2O7F0G06uurj9kZ96TRQE5Y9hU7+tgdZwIkbAKc5Ocy1HxEY2kuDQa6cQ1WRs/O5LFKA==}
     engines: {node: ^12.20.0 || ^14.18.0 || >=16.0.0}
 
-  '@playwright/test@1.56.1':
-    resolution: {integrity: sha512-vSMYtL/zOcFpvJCW71Q/OEGQb7KYBPAdKh35WNSkaZA75JlAO8ED8UN6GUNTm3drWomcbcqRPFqQbLae8yBTdg==}
+  '@playwright/test@1.58.2':
+    resolution: {integrity: sha512-akea+6bHYBBfA9uQqSYmlJXn61cTa+jbO87xVLCWbTqbWadRVmhxlXATaOjOgcBaWU4ePo0wB41KMFv3o35IXA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -9114,13 +9114,13 @@ packages:
     resolution: {integrity: sha512-Ie9z/WINcxxLp27BKOCHGde4ITq9UklYKDzVo1nhk5sqGEXU3FpkwP5GM2voTGJkGd9B3Otl+Q4uwSOeSUtOBA==}
     engines: {node: '>=14.16'}
 
-  playwright-core@1.56.1:
-    resolution: {integrity: sha512-hutraynyn31F+Bifme+Ps9Vq59hKuUCz7H1kDOcBs+2oGguKkWTU50bBWrtz34OUWmIwpBTWDxaRPXrIXkgvmQ==}
+  playwright-core@1.58.2:
+    resolution: {integrity: sha512-yZkEtftgwS8CsfYo7nm0KE8jsvm6i/PTgVtB8DL726wNf6H2IMsDuxCpJj59KDaxCtSnrWan2AeDqM7JBaultg==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.56.1:
-    resolution: {integrity: sha512-aFi5B0WovBHTEvpM3DzXTUaeN6eN0qWnTkKx4NQaH4Wvcmc153PdaY2UBdSYKaGYw+UyWXSVyxDUg5DoPEttjw==}
+  playwright@1.58.2:
+    resolution: {integrity: sha512-vA30H8Nvkq/cPBnNw4Q8TWz1EJyqgpuinBcHET0YVJVFldr8JDNiU9LaWAE1KqSkRYazuaBhTpB5ZzShOezQ6A==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -11944,8 +11944,8 @@ snapshots:
       tslib: 2.8.1
       typescript: 5.9.2
       webpack: 5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.27.2)
-      webpack-dev-middleware: 7.4.5(tslib@2.8.1)(webpack@5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19)))
-      webpack-dev-server: 5.2.2(tslib@2.8.1)(webpack@5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19)))
+      webpack-dev-middleware: 7.4.5(tslib@2.6.2)(webpack@5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19)))
+      webpack-dev-server: 5.2.2(tslib@2.6.2)(webpack@5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19)))
       webpack-merge: 6.0.1
       webpack-subresource-integrity: 5.1.0(html-webpack-plugin@5.6.0(@rspack/core@1.6.8(@swc/helpers@0.5.19))(webpack@5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19))))(webpack@5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19)))
     optionalDependencies:
@@ -11982,7 +11982,7 @@ snapshots:
       '@angular-devkit/architect': 0.2101.5(chokidar@5.0.0)
       rxjs: 7.8.2
       webpack: 5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.27.2)
-      webpack-dev-server: 5.2.2(tslib@2.8.1)(webpack@5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19)))
+      webpack-dev-server: 5.2.2(tslib@2.6.2)(webpack@5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19)))
     transitivePeerDependencies:
       - chokidar
 
@@ -17003,7 +17003,7 @@ snapshots:
   '@nx/nx-win32-x64-msvc@22.5.4':
     optional: true
 
-  '@nx/playwright@22.5.4(@babel/traverse@7.29.0)(@playwright/test@1.56.1)(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@swc/types@0.1.25)(typescript@5.9.2))(@swc/core@1.15.8(@swc/helpers@0.5.19))(@zkochan/js-yaml@0.0.7)(eslint@9.38.0(jiti@2.4.2))(nx@22.5.4(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@swc/types@0.1.25)(typescript@5.9.2))(@swc/core@1.15.8(@swc/helpers@0.5.19)))':
+  '@nx/playwright@22.5.4(@babel/traverse@7.29.0)(@playwright/test@1.58.2)(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@swc/types@0.1.25)(typescript@5.9.2))(@swc/core@1.15.8(@swc/helpers@0.5.19))(@zkochan/js-yaml@0.0.7)(eslint@9.38.0(jiti@2.4.2))(nx@22.5.4(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@swc/types@0.1.25)(typescript@5.9.2))(@swc/core@1.15.8(@swc/helpers@0.5.19)))':
     dependencies:
       '@nx/devkit': 22.5.4(nx@22.5.4(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@swc/types@0.1.25)(typescript@5.9.2))(@swc/core@1.15.8(@swc/helpers@0.5.19)))
       '@nx/eslint': 22.5.4(@babel/traverse@7.29.0)(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@swc/types@0.1.25)(typescript@5.9.2))(@swc/core@1.15.8(@swc/helpers@0.5.19))(@zkochan/js-yaml@0.0.7)(eslint@9.38.0(jiti@2.4.2))(nx@22.5.4(@swc-node/register@1.11.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(@swc/types@0.1.25)(typescript@5.9.2))(@swc/core@1.15.8(@swc/helpers@0.5.19)))
@@ -17011,7 +17011,7 @@ snapshots:
       minimatch: 10.2.4
       tslib: 2.8.1
     optionalDependencies:
-      '@playwright/test': 1.56.1
+      '@playwright/test': 1.58.2
     transitivePeerDependencies:
       - '@babel/traverse'
       - '@swc-node/register'
@@ -17475,9 +17475,9 @@ snapshots:
 
   '@pkgr/core@0.2.9': {}
 
-  '@playwright/test@1.56.1':
+  '@playwright/test@1.58.2':
     dependencies:
-      playwright: 1.56.1
+      playwright: 1.58.2
 
   '@pnpm/config.env-replace@1.1.0': {}
 
@@ -17989,17 +17989,17 @@ snapshots:
     dependencies:
       '@testing-library/dom': 10.4.1
 
-  '@testronaut/angular@0.0.11(@angular/compiler@21.1.6)(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1))(@angular/platform-browser@21.1.6(@angular/animations@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1)))(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1))(rxjs@7.8.1))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1)))(@testronaut/core@0.0.11(@playwright/test@1.56.1))':
+  '@testronaut/angular@0.0.11(@angular/compiler@21.1.6)(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1))(@angular/platform-browser@21.1.6(@angular/animations@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1)))(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1))(rxjs@7.8.1))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1)))(@testronaut/core@0.0.11(@playwright/test@1.58.2))':
     dependencies:
       '@angular/compiler': 21.1.6
       '@angular/core': 21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1)
       '@angular/platform-browser': 21.1.6(@angular/animations@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1)))(@angular/common@21.1.6(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1))(rxjs@7.8.1))(@angular/core@21.1.6(@angular/compiler@21.1.6)(rxjs@7.8.1)(zone.js@0.16.1))
-      '@testronaut/core': 0.0.11(@playwright/test@1.56.1)
+      '@testronaut/core': 0.0.11(@playwright/test@1.58.2)
       typescript: 5.9.2
 
-  '@testronaut/core@0.0.11(@playwright/test@1.56.1)':
+  '@testronaut/core@0.0.11(@playwright/test@1.58.2)':
     dependencies:
-      '@playwright/test': 1.56.1
+      '@playwright/test': 1.58.2
       typescript: 5.9.2
 
   '@tootallnate/once@2.0.0': {}
@@ -18429,11 +18429,11 @@ snapshots:
     dependencies:
       vite: 7.3.0(@types/node@20.19.9)(jiti@2.4.2)(less@4.4.2)(sass-embedded@1.92.1)(sass@1.97.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.19.4)(yaml@2.7.0)
 
-  '@vitest/browser-playwright@4.0.18(playwright@1.56.1)(vite@7.1.5(@types/node@20.19.9)(jiti@2.4.2)(less@4.4.2)(sass-embedded@1.92.1)(sass@1.92.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.19.4)(yaml@2.7.0))(vitest@4.0.18)':
+  '@vitest/browser-playwright@4.0.18(playwright@1.58.2)(vite@7.1.5(@types/node@20.19.9)(jiti@2.4.2)(less@4.4.2)(sass-embedded@1.92.1)(sass@1.92.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.19.4)(yaml@2.7.0))(vitest@4.0.18)':
     dependencies:
       '@vitest/browser': 4.0.18(vite@7.1.5(@types/node@20.19.9)(jiti@2.4.2)(less@4.4.2)(sass-embedded@1.92.1)(sass@1.92.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.19.4)(yaml@2.7.0))(vitest@4.0.18)
       '@vitest/mocker': 4.0.18(vite@7.1.5(@types/node@20.19.9)(jiti@2.4.2)(less@4.4.2)(sass-embedded@1.92.1)(sass@1.92.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.19.4)(yaml@2.7.0))
-      playwright: 1.56.1
+      playwright: 1.58.2
       tinyrainbow: 3.0.3
       vitest: 4.0.18(@types/node@20.19.9)(@vitest/browser-playwright@4.0.18)(@vitest/ui@4.0.18)(happy-dom@18.0.1)(jiti@2.4.2)(jsdom@22.1.0)(less@4.4.2)(sass-embedded@1.92.1)(sass@1.92.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.19.4)(yaml@2.7.0)
     transitivePeerDependencies:
@@ -23963,11 +23963,11 @@ snapshots:
     dependencies:
       find-up: 6.3.0
 
-  playwright-core@1.56.1: {}
+  playwright-core@1.58.2: {}
 
-  playwright@1.56.1:
+  playwright@1.58.2:
     dependencies:
-      playwright-core: 1.56.1
+      playwright-core: 1.58.2
     optionalDependencies:
       fsevents: 2.3.2
 
@@ -26279,7 +26279,7 @@ snapshots:
       why-is-node-running: 2.3.0
     optionalDependencies:
       '@types/node': 20.19.9
-      '@vitest/browser-playwright': 4.0.18(playwright@1.56.1)(vite@7.1.5(@types/node@20.19.9)(jiti@2.4.2)(less@4.4.2)(sass-embedded@1.92.1)(sass@1.92.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.19.4)(yaml@2.7.0))(vitest@4.0.18)
+      '@vitest/browser-playwright': 4.0.18(playwright@1.58.2)(vite@7.1.5(@types/node@20.19.9)(jiti@2.4.2)(less@4.4.2)(sass-embedded@1.92.1)(sass@1.92.1)(stylus@0.64.0)(terser@5.44.1)(tsx@4.19.4)(yaml@2.7.0))(vitest@4.0.18)
       '@vitest/ui': 4.0.18(vitest@4.0.18)
       happy-dom: 18.0.1
       jsdom: 22.1.0
@@ -26367,6 +26367,19 @@ snapshots:
       schema-utils: 4.3.2
       webpack: 5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))
 
+  webpack-dev-middleware@7.4.5(tslib@2.6.2)(webpack@5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19))):
+    dependencies:
+      colorette: 2.0.20
+      memfs: 4.56.11(tslib@2.6.2)
+      mime-types: 3.0.1
+      on-finished: 2.4.1
+      range-parser: 1.2.1
+      schema-utils: 4.3.2
+    optionalDependencies:
+      webpack: 5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.27.2)
+    transitivePeerDependencies:
+      - tslib
+
   webpack-dev-middleware@7.4.5(tslib@2.8.1)(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))):
     dependencies:
       colorette: 2.0.20
@@ -26377,19 +26390,6 @@ snapshots:
       schema-utils: 4.3.2
     optionalDependencies:
       webpack: 5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))
-    transitivePeerDependencies:
-      - tslib
-
-  webpack-dev-middleware@7.4.5(tslib@2.8.1)(webpack@5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19))):
-    dependencies:
-      colorette: 2.0.20
-      memfs: 4.56.11(tslib@2.6.2)
-      mime-types: 3.0.1
-      on-finished: 2.4.1
-      range-parser: 1.2.1
-      schema-utils: 4.3.2
-    optionalDependencies:
-      webpack: 5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.27.2)
     transitivePeerDependencies:
       - tslib
 
@@ -26433,6 +26433,45 @@ snapshots:
       - supports-color
       - utf-8-validate
 
+  webpack-dev-server@5.2.2(tslib@2.6.2)(webpack@5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19))):
+    dependencies:
+      '@types/bonjour': 3.5.13
+      '@types/connect-history-api-fallback': 1.5.4
+      '@types/express': 4.17.21
+      '@types/express-serve-static-core': 4.19.0
+      '@types/serve-index': 1.9.4
+      '@types/serve-static': 1.15.7
+      '@types/sockjs': 0.3.36
+      '@types/ws': 8.5.10
+      ansi-html-community: 0.0.8
+      bonjour-service: 1.2.1
+      chokidar: 3.6.0
+      colorette: 2.0.20
+      compression: 1.7.4
+      connect-history-api-fallback: 2.0.0
+      express: 4.21.2
+      graceful-fs: 4.2.11
+      http-proxy-middleware: 2.0.9(@types/express@4.17.21)
+      ipaddr.js: 2.2.0
+      launch-editor: 2.6.1
+      open: 10.2.0
+      p-retry: 6.2.0
+      schema-utils: 4.3.2
+      selfsigned: 2.4.1
+      serve-index: 1.9.1
+      sockjs: 0.3.24
+      spdy: 4.0.2
+      webpack-dev-middleware: 7.4.5(tslib@2.6.2)(webpack@5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19)))
+      ws: 8.18.3
+    optionalDependencies:
+      webpack: 5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.27.2)
+    transitivePeerDependencies:
+      - bufferutil
+      - debug
+      - supports-color
+      - tslib
+      - utf-8-validate
+
   webpack-dev-server@5.2.2(tslib@2.8.1)(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))):
     dependencies:
       '@types/bonjour': 3.5.13
@@ -26465,45 +26504,6 @@ snapshots:
       ws: 8.18.3
     optionalDependencies:
       webpack: 5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))
-    transitivePeerDependencies:
-      - bufferutil
-      - debug
-      - supports-color
-      - tslib
-      - utf-8-validate
-
-  webpack-dev-server@5.2.2(tslib@2.8.1)(webpack@5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19))):
-    dependencies:
-      '@types/bonjour': 3.5.13
-      '@types/connect-history-api-fallback': 1.5.4
-      '@types/express': 4.17.21
-      '@types/express-serve-static-core': 4.19.0
-      '@types/serve-index': 1.9.4
-      '@types/serve-static': 1.15.7
-      '@types/sockjs': 0.3.36
-      '@types/ws': 8.5.10
-      ansi-html-community: 0.0.8
-      bonjour-service: 1.2.1
-      chokidar: 3.6.0
-      colorette: 2.0.20
-      compression: 1.7.4
-      connect-history-api-fallback: 2.0.0
-      express: 4.21.2
-      graceful-fs: 4.2.11
-      http-proxy-middleware: 2.0.9(@types/express@4.17.21)
-      ipaddr.js: 2.2.0
-      launch-editor: 2.6.1
-      open: 10.2.0
-      p-retry: 6.2.0
-      schema-utils: 4.3.2
-      selfsigned: 2.4.1
-      serve-index: 1.9.1
-      sockjs: 0.3.24
-      spdy: 4.0.2
-      webpack-dev-middleware: 7.4.5(tslib@2.8.1)(webpack@5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19)))
-      ws: 8.18.3
-    optionalDependencies:
-      webpack: 5.105.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.27.2)
     transitivePeerDependencies:
       - bufferutil
       - debug

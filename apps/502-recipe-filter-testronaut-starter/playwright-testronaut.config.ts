@@ -7,7 +7,7 @@ const projectName = __dirname.split(sep).pop();
 const timeout = 5_000;
 
 export default defineConfig(
-  nxE2EPreset(__filename),
+  nxE2EPreset(__filename, {}),
   withTestronautAngular({
     configPath: __filename,
     testServer: {

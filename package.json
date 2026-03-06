@@ -64,7 +64,7 @@
     "@nx/web": "22.5.4",
     "@nx/workspace": "22.5.4",
     "@percy/cli": "1.17.0",
-    "@playwright/test": "1.56.1",
+    "@playwright/test": "1.58.2",
     "@schematics/angular": "21.1.5",
     "@swc-node/register": "1.11.1",
     "@swc/core": "1.15.8",
