@@ -1,10 +1,13 @@
 import nx from '@nx/eslint-plugin';
+import vitest from '@vitest/eslint-plugin';
 import baseConfig from '../../eslint.config.mjs';
+import { defineConfig } from 'eslint/config';
 
-export default [
+export default defineConfig([
   ...baseConfig,
   ...nx.configs['flat/angular'],
   ...nx.configs['flat/angular-template'],
+  vitest.configs.recommended,
   {
     files: ['**/*.ts'],
     rules: {
@@ -24,6 +27,7 @@ export default [
           style: 'kebab-case',
         },
       ],
+      'vitest/valid-title': 'off',
     },
   },
   {
@@ -34,4 +38,4 @@ export default [
       '@angular-eslint/template/alt-text': 'off',
     },
   },
-];
+]);
