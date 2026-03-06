@@ -1,6 +1,6 @@
-import { swcAngularJestTransformer } from '@jscutlery/swc-angular';
+const { swcAngularJestTransformer } = require('@jscutlery/swc-angular');
 
-export default {
+module.exports = {
   displayName: 'whiskmate',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup-jest.ts'],

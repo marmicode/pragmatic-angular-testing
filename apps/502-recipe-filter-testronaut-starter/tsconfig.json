@@ -22,7 +22,9 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "target": "es2020",
-    "moduleResolution": "Bundler"
+    "moduleResolution": "bundler",
+    "module": "preserve",
+    "lib": ["dom", "es2022"]
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
