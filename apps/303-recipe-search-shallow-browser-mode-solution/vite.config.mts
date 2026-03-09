@@ -29,15 +29,7 @@ export default defineConfig({
  * @see https://github.com/analogjs/analog/issues/1891
  */
 function applyAnalogWorkaround(plugins: Plugin[]): Plugin[] {
-  return plugins.map((plugin) => {
-    if (plugin.name === '@analogjs/vitest-angular-esm-plugin') {
-      return {
-        name: plugin.name,
-        apply: plugin.apply,
-        enforce: plugin.enforce,
-        config: () => ({ optimizeDeps: { include: ['tslib'] } }),
-      };
-    }
-    return plugin;
-  });
+  return plugins.filter(
+    (plugin) => plugin.name !== '@analogjs/vitest-angular-esm-plugin',
+  );
 }

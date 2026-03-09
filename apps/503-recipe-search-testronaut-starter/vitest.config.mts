@@ -19,12 +19,7 @@ export default mergeConfig(
       },
       watch: false,
       pool: 'threads',
-      /**
-       * @todo disable `isolate` once no-isolate parallelism is supported.
-       * @see https://github.com/vitest-dev/vitest/issues/8919
-       * @see https://github.com/vitest-dev/vitest/pull/8915
-       */
-      isolate: true,
+      isolate: false,
       projects: [
         {
           extends: true,
@@ -42,11 +37,6 @@ export default mergeConfig(
             include: browserTestPatterns,
             browser: {
               enabled: true,
-              /**
-               * @todo hoist once browser.isolate and isolate are merged
-               * @see https://github.com/vitest-dev/vitest/pull/8890
-               */
-              isolate: false,
               provider: playwright(),
               instances: [{ browser: 'chromium' }],
             },
