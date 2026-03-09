@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, output } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RecipeFilterCriteria } from './recipe-filter';
+import { RecipeFilterCriteria } from './recipe-filter-criteria';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
