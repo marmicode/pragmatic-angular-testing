@@ -36,12 +36,17 @@ function donwgradeNxJsonUpdater(nxJson: NxJsonConfiguration) {
       return plugin;
     }
 
+    const options = (plugin.options ?? {}) as Record<string, unknown>;
+    if (options && typeof options !== 'object') {
+      throw new Error(`Invalid plugin options: ${JSON.stringify(options)}`);
+    }
+
     switch (plugin.plugin) {
       case '@nx/jest/plugin':
         return {
           ...plugin,
           options: {
-            ...(plugin.options ?? {}),
+            ...options,
             targetName: 'test',
           },
         };
@@ -49,7 +54,7 @@ function donwgradeNxJsonUpdater(nxJson: NxJsonConfiguration) {
         return {
           ...plugin,
           options: {
-            ...(plugin.options ?? {}),
+            ...options,
             testTargetName: 'vitest',
           },
         };
