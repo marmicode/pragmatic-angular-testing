@@ -1,12 +1,9 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  effect,
-  output,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, model } from '@angular/core';
 import { form, FormField, FormRoot } from '@angular/forms/signals';
-import { RecipeFilterCriteria } from './recipe-filter-criteria';
+import {
+  createDefaultRecipeFilterCriteria,
+  RecipeFilterCriteria,
+} from './recipe-filter-criteria';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -42,30 +39,7 @@ import { RecipeFilterCriteria } from './recipe-filter-criteria';
   `,
 })
 export class RecipeFilter {
-  filterChange = output<RecipeFilterCriteria>();
+  filter = model<RecipeFilterCriteria>(createDefaultRecipeFilterCriteria());
 
-  filterForm = form(
-    signal<{
-      keywords: string;
-      maxIngredientCount: number | null;
-      maxStepCount: number | null;
-    }>({
-      keywords: '',
-      maxIngredientCount: null,
-      maxStepCount: null,
-    }),
-  );
-
-  constructor() {
-    effect(() => {
-      const { keywords, maxIngredientCount, maxStepCount } =
-        this.filterForm().value();
-      this.filterChange.emit({
-        keywords: keywords.length > 0 ? keywords : undefined,
-        maxIngredientCount:
-          maxIngredientCount != null ? maxIngredientCount : undefined,
-        maxStepCount: maxStepCount != null ? maxStepCount : undefined,
-      });
-    });
-  }
+  filterForm = form(this.filter);
 }
