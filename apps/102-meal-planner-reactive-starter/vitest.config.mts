@@ -3,7 +3,7 @@ import { defineConfig, mergeConfig } from 'vitest/config';
 import viteConfig from './vite.config.mjs';
 import vitestAngularPreset from './vitest-angular-preset';
 
-const testPatterns = ['src/**/*.spec.ts'];
+const emulatedTestPatterns = ['src/**/!(*.browser).spec.ts'];
 const browserTestPatterns = ['src/**/*.browser.spec.ts'];
 
 export default mergeConfig(
@@ -20,14 +20,14 @@ export default mergeConfig(
       watch: false,
       pool: 'threads',
       isolate: false,
+      testTimeout: 1_500,
       projects: [
         {
           extends: true,
           test: {
             name: 'emulated',
             environment: 'jsdom',
-            include: testPatterns,
-            exclude: browserTestPatterns,
+            include: emulatedTestPatterns,
           },
         },
         {
