@@ -1,9 +1,9 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  signal,
-  output,
   effect,
+  output,
+  signal,
 } from '@angular/core';
 import { form, FormField, FormRoot } from '@angular/forms/signals';
 import { RecipeFilterCriteria } from './recipe-filter-criteria';

@@ -2,7 +2,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   effect,
-  model,
   output,
   signal,
 } from '@angular/core';
