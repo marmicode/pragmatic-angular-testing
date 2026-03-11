@@ -1,5 +1,7 @@
 import { ChangeDetectionStrategy, Component, model } from '@angular/core';
 import { form, FormField, FormRoot } from '@angular/forms/signals';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInput } from '@angular/material/input';
 import {
   createDefaultRecipeFilterCriteria,
   RecipeFilterCriteria,
@@ -8,28 +10,36 @@ import {
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
   selector: 'wm-recipe-filter',
-  imports: [FormField, FormRoot],
+  imports: [FormField, FormRoot, MatFormFieldModule, MatInput],
   template: `
     <form [formRoot]="filterForm">
-      <input
-        [formField]="filterForm.keywords"
-        aria-label="Keywords"
-        placeholder="keywords"
-        type="text"
-      />
-      <input
-        [formField]="filterForm.maxIngredientCount"
-        aria-label="Max Ingredients"
-        formControlName="maxIngredientCount"
-        placeholder="max ingredients"
-        type="number"
-      />
-      <input
-        [formField]="filterForm.maxStepCount"
-        aria-label="Max Steps"
-        placeholder="max steps"
-        type="number"
-      />
+      <mat-form-field>
+        <mat-label>Keywords</mat-label>
+        <input
+          [formField]="filterForm.keywords"
+          matInput
+          placeholder="Keywords"
+          type="text"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Max Ingredients</mat-label>
+        <input
+          [formField]="filterForm.maxIngredientCount"
+          aria-label="Max Ingredients"
+          placeholder="max ingredients"
+          type="number"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Max Steps</mat-label>
+        <input
+          [formField]="filterForm.maxStepCount"
+          aria-label="Max Steps"
+          placeholder="Max Steps"
+          type="number"
+        />
+      </mat-form-field>
     </form>
   `,
   styles: `
