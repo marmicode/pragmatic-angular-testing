@@ -20,7 +20,6 @@ import {
       <input
         [formField]="filterForm.maxIngredientCount"
         aria-label="Max Ingredients"
-        formControlName="maxIngredientCount"
         placeholder="max ingredients"
         type="number"
       />

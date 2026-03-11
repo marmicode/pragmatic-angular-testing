@@ -1,6 +1,9 @@
-import { ChangeDetectionStrategy, Component, output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, model } from '@angular/core';
 import { FormField, FormRoot } from '@angular/forms/signals';
-import { RecipeFilterCriteria } from './recipe-filter-criteria';
+import {
+  createDefaultRecipeFilterCriteria,
+  RecipeFilterCriteria,
+} from './recipe-filter-criteria';
 
 @Component({
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -9,5 +12,5 @@ import { RecipeFilterCriteria } from './recipe-filter-criteria';
   template: ` &lt;🚧 wm-recipe-filter&gt; `,
 })
 export class RecipeFilter {
-  filterChange = output<RecipeFilterCriteria>();
+  filter = model<RecipeFilterCriteria>(createDefaultRecipeFilterCriteria());
 }
