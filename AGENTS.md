@@ -38,4 +38,4 @@ allowed-tools: Bash(pnpm test *), Bash(pnpm cook *)
 
 ## Other Instructions
 
-- To compare with other branches, use git locally or if needed, fallback to visiting the repository at [https://github.com/marmicode/pragmatic-angular-testing-workshop](https://github.com/marmicode/pragmatic-angular-testing-workshop)
+- To compare with other branches, use git locally or if needed, fallback to visiting the repository at [https://github.com/marmicode/pragmatic-angular-testing](https://github.com/marmicode/pragmatic-angular-testing)

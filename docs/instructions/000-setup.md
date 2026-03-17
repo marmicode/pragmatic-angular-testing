@@ -35,9 +35,9 @@ volta install pnpm
 ## 📥 Retrieve source code and install dependencies
 
 ```sh
-git clone https://github.com/marmicode/pragmatic-angular-testing-workshop.git
+git clone https://github.com/marmicode/pragmatic-angular-testing.git
 
-cd pragmatic-angular-testing-workshop
+cd pragmatic-angular-testing
 
 pnpm install
 ```
