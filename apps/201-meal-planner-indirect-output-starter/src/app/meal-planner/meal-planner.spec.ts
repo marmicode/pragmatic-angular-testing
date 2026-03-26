@@ -5,11 +5,11 @@ import { recipeMother } from '../testing/recipe.mother';
 import { MealPlanner } from './meal-planner';
 
 describe(MealPlanner.name, () => {
-  it('adds recipes', () => {
+  it('adds recipes', async () => {
     const { mealPlanner, burger, salad } = createMealPlanner();
 
-    mealPlanner.addRecipe(burger);
-    mealPlanner.addRecipe(salad);
+    await mealPlanner.addRecipe(burger);
+    await mealPlanner.addRecipe(salad);
 
     expect(mealPlanner.recipes()).toEqual([
       expect.objectContaining({ name: 'Burger' }),
@@ -17,16 +17,18 @@ describe(MealPlanner.name, () => {
     ]);
   });
 
-  it('does not allow recipe duplicates', () => {
-    const { mealPlanner, burgerDuplicate } = createMealPlannerWithBurger();
+  it('does not allow recipe duplicates', async () => {
+    const { mealPlanner, burgerDuplicate } =
+      await createMealPlannerWithBurger();
 
     expect(mealPlanner.canAddRecipe(burgerDuplicate)).toBe(false);
   });
 
-  it('throws error if recipe is already present', () => {
-    const { mealPlanner, burgerDuplicate } = createMealPlannerWithBurger();
+  it('throws error if recipe is already present', async () => {
+    const { mealPlanner, burgerDuplicate } =
+      await createMealPlannerWithBurger();
 
-    expect(() => mealPlanner.addRecipe(burgerDuplicate)).toThrow(
+    await expect(mealPlanner.addRecipe(burgerDuplicate)).rejects.toThrow(
       `Can't add recipe.`,
     );
   });
@@ -36,12 +38,12 @@ describe(MealPlanner.name, () => {
   });
 
   it('notifies when recipes change', async () => {
-    const { mealPlanner, burger, salad } = createMealPlanner();
+    const { mealPlanner, burger, salad } = await createMealPlanner();
 
     const recipes = watch(mealPlanner.recipes);
 
-    mealPlanner.addRecipe(burger);
-    mealPlanner.addRecipe(salad);
+    await mealPlanner.addRecipe(burger);
+    await mealPlanner.addRecipe(salad);
 
     await whenAppStable();
 
@@ -49,18 +51,18 @@ describe(MealPlanner.name, () => {
   });
 
   describe('canAddRecipe', () => {
-    it('allows new recipes', () => {
-      const { mealPlanner, salad } = createMealPlannerWithBurger();
+    it('allows new recipes', async () => {
+      const { mealPlanner, salad } = await createMealPlannerWithBurger();
 
       expect(mealPlanner.canAddRecipe(salad)).toBe(true);
     });
 
     it('notifies when recipes change', async () => {
-      const { mealPlanner, salad } = createMealPlannerWithBurger();
+      const { mealPlanner, salad } = await createMealPlannerWithBurger();
 
       const canAddRecipe = watch(() => mealPlanner.canAddRecipe(salad));
 
-      mealPlanner.addRecipe(salad);
+      await mealPlanner.addRecipe(salad);
 
       await whenAppStable();
 
@@ -68,10 +70,10 @@ describe(MealPlanner.name, () => {
     });
   });
 
-  function createMealPlannerWithBurger() {
+  async function createMealPlannerWithBurger() {
     const { mealPlanner, burger, ...utils } = createMealPlanner();
 
-    mealPlanner.addRecipe(burger);
+    await mealPlanner.addRecipe(burger);
 
     return {
       mealPlanner,

@@ -13,7 +13,7 @@ export class MealPlanner {
     return this.recipes().find((r) => recipe.id === r.id) == null;
   }
 
-  addRecipe(recipe: Recipe) {
+  async addRecipe(recipe: Recipe) {
     if (!untracked(() => this.canAddRecipe(recipe))) {
       throw new Error(`Can't add recipe.`);
     }
