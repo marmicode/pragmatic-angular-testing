@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-import { firstValueFrom } from 'rxjs';
 import { page } from 'vitest/browser';
 import { MealPlanner } from '../meal-planner/meal-planner';
 import { provideMealRepositoryFake } from '../meal-planner/meal-repository.fake';
@@ -70,10 +69,8 @@ describe(RecipeSearch.name, () => {
 
     return {
       mealPlanner,
-      async getMealPlannerRecipeNames() {
-        const recipes = await firstValueFrom(mealPlanner.recipes$);
-        return recipes.map((recipe) => recipe.name);
-      },
+      getMealPlannerRecipeNames: () =>
+        mealPlanner.recipes().map((recipe) => recipe.name),
       getFirstAddButton() {
         return page.getByRole('button', { name: 'ADD' }).first();
       },
