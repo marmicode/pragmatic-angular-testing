@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
 import { watch } from '@whiskmate/testing/watch';
-import { whenAppStable } from '@whiskmate/testing/when-app-stable';
 import { recipeMother } from '../testing/recipe.mother';
 import { MealPlanner } from './meal-planner';
 
@@ -45,8 +44,6 @@ describe(MealPlanner.name, () => {
     await mealPlanner.addRecipe(burger);
     await mealPlanner.addRecipe(salad);
 
-    await whenAppStable();
-
     expect(recipes()).toMatchObject([{ name: 'Burger' }, { name: 'Salad' }]);
   });
 
@@ -63,8 +60,6 @@ describe(MealPlanner.name, () => {
       const canAddRecipe = watch(() => mealPlanner.canAddRecipe(salad));
 
       await mealPlanner.addRecipe(salad);
-
-      await whenAppStable();
 
       expect(canAddRecipe()).toBe(false);
     });
