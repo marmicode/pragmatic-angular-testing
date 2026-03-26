@@ -6,8 +6,8 @@ describe(MealPlanner.name, () => {
   it('adds recipes', () => {
     const { mealPlanner, burger, salad } = createMealPlanner();
 
-    await mealPlanner.addRecipe(burger);
-    await mealPlanner.addRecipe(salad);
+    mealPlanner.addRecipe(burger);
+    mealPlanner.addRecipe(salad);
 
     expect(mealPlanner.getRecipes()).toEqual([
       expect.objectContaining({ name: 'Burger' }),
@@ -38,7 +38,7 @@ describe(MealPlanner.name, () => {
   function createMealPlannerWithBurger() {
     const { mealPlanner, burger, ...utils } = createMealPlanner();
 
-    await mealPlanner.addRecipe(burger);
+    mealPlanner.addRecipe(burger);
 
     return {
       mealPlanner,

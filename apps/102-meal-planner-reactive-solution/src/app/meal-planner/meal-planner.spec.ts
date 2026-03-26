@@ -7,8 +7,8 @@ describe(MealPlanner.name, () => {
   it('adds recipes', () => {
     const { mealPlanner, burger, salad } = createMealPlanner();
 
-    await mealPlanner.addRecipe(burger);
-    await mealPlanner.addRecipe(salad);
+    mealPlanner.addRecipe(burger);
+    mealPlanner.addRecipe(salad);
 
     expect(mealPlanner.getRecipes()).toEqual([
       expect.objectContaining({ name: 'Burger' }),
@@ -46,15 +46,15 @@ describe(MealPlanner.name, () => {
       expect(observer.next).toHaveBeenCalledWith([]);
     });
 
-    it('emits recipes when added', () => {
+    it('emits recipes when added', async () => {
       const { mealPlanner, burger, salad } = createMealPlanner();
 
       using observer = observe(mealPlanner.recipes$);
 
       observer.clear();
 
-      await mealPlanner.addRecipe(burger);
-      await mealPlanner.addRecipe(salad);
+      mealPlanner.addRecipe(burger);
+      mealPlanner.addRecipe(salad);
 
       expect(observer.next).toHaveBeenCalledTimes(2);
       expect(observer.next).toHaveBeenNthCalledWith(1, [
@@ -77,29 +77,29 @@ describe(MealPlanner.name, () => {
       expect(observer.next).toHaveBeenCalledWith(true);
     });
 
-    it(`should emit false when recipe is added and can't be added anymore`, () => {
+    it(`should emit false when recipe is added and can't be added anymore`, async () => {
       const { mealPlanner, burger } = createMealPlanner();
 
       using observer = observe(mealPlanner.watchCanAddRecipe(burger));
 
       observer.clear();
 
-      await mealPlanner.addRecipe(burger);
+      mealPlanner.addRecipe(burger);
 
       expect(observer.next).toHaveBeenCalledTimes(1);
       expect(observer.next).toHaveBeenCalledWith(false);
     });
 
-    it(`should not emit if result didn't change`, () => {
+    it(`should not emit if result didn't change`, async () => {
       const { mealPlanner, burger, salad } = createMealPlanner();
 
       using observer = observe(mealPlanner.watchCanAddRecipe(burger));
 
-      await mealPlanner.addRecipe(burger);
+      mealPlanner.addRecipe(burger);
 
       observer.clear();
 
-      await mealPlanner.addRecipe(salad);
+      mealPlanner.addRecipe(salad);
 
       expect(observer.next).not.toHaveBeenCalled();
     });
@@ -108,7 +108,7 @@ describe(MealPlanner.name, () => {
   function createMealPlannerWithBurger() {
     const { mealPlanner, burger, ...utils } = createMealPlanner();
 
-    await mealPlanner.addRecipe(burger);
+    mealPlanner.addRecipe(burger);
 
     return {
       mealPlanner,

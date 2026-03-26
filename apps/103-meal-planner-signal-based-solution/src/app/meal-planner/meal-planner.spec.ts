@@ -7,8 +7,8 @@ describe(MealPlanner.name, () => {
   it('adds recipes', () => {
     const { mealPlanner, burger, salad } = createMealPlanner();
 
-    await mealPlanner.addRecipe(burger);
-    await mealPlanner.addRecipe(salad);
+    mealPlanner.addRecipe(burger);
+    mealPlanner.addRecipe(salad);
 
     expect(mealPlanner.recipes()).toEqual([
       expect.objectContaining({ name: 'Burger' }),
@@ -30,13 +30,13 @@ describe(MealPlanner.name, () => {
     );
   });
 
-  it('notifies when recipes change', async () => {
+  it('notifies when recipes change', () => {
     const { mealPlanner, burger, salad } = createMealPlanner();
 
     const recipes = watch(mealPlanner.recipes);
 
-    await mealPlanner.addRecipe(burger);
-    await mealPlanner.addRecipe(salad);
+    mealPlanner.addRecipe(burger);
+    mealPlanner.addRecipe(salad);
 
     expect(recipes()).toMatchObject([{ name: 'Burger' }, { name: 'Salad' }]);
   });
@@ -48,12 +48,12 @@ describe(MealPlanner.name, () => {
       expect(mealPlanner.canAddRecipe(salad)).toBe(true);
     });
 
-    it('notifies when recipes change', async () => {
+    it('notifies when recipes change', () => {
       const { mealPlanner, salad } = createMealPlannerWithBurger();
 
       const canAddRecipe = watch(() => mealPlanner.canAddRecipe(salad));
 
-      await mealPlanner.addRecipe(salad);
+      mealPlanner.addRecipe(salad);
 
       expect(canAddRecipe()).toBe(false);
     });
@@ -62,7 +62,7 @@ describe(MealPlanner.name, () => {
   function createMealPlannerWithBurger() {
     const { mealPlanner, burger, ...utils } = createMealPlanner();
 
-    await mealPlanner.addRecipe(burger);
+    mealPlanner.addRecipe(burger);
 
     return {
       mealPlanner,

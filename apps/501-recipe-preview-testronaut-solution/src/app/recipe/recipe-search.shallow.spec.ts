@@ -93,10 +93,8 @@ describe(RecipeSearch.name, () => {
           name: 'ADD',
         })[0];
       },
-      async getMealPlannerRecipeNames() {
-        const recipes = await firstValueFrom(mealPlanner.recipes$);
-        return recipes.map((recipe) => recipe.name);
-      },
+      getMealPlannerRecipeNames: () =>
+        mealPlanner.recipes().map((recipe) => recipe.name),
       getRecipeNames() {
         return debugElement
           .queryAll(By.css('wm-recipe-preview'))

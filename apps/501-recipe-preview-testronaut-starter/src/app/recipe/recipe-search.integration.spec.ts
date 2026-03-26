@@ -77,10 +77,8 @@ describe(RecipeSearch.name, () => {
 
     return {
       mealPlanner,
-      async getMealPlannerRecipeNames() {
-        const recipes = await firstValueFrom(mealPlanner.recipes$);
-        return recipes.map((recipe) => recipe.name);
-      },
+      getMealPlannerRecipeNames: () =>
+        mealPlanner.recipes().map((recipe) => recipe.name),
       getFirstAddButton() {
         return screen.getAllByRole<HTMLButtonElement>('button', {
           name: 'ADD',
