@@ -34,7 +34,7 @@ describe(RecipeSearch.name, () => {
 
     return {
       recipeHeadings: page.getByRole('heading'),
-      async updateFilter({ keywords }: { keywords: string }) {
+      updateFilter: ({ keywords }: { keywords: string }) => {
         // TODO: implement this
         throw new Error('🚧 Work in progress!');
       },
