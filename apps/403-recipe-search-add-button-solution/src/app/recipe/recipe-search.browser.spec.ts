@@ -46,7 +46,7 @@ describe(RecipeSearch.name, () => {
   async function mountRecipeSearchWithBurgerInMealPlanner() {
     const { mealPlanner, ...utils } = await mountRecipeSearch();
 
-    mealPlanner.addRecipe(recipeMother.withBasicInfo('Burger').build());
+    await mealPlanner.addRecipe(recipeMother.withBasicInfo('Burger').build());
 
     return utils;
   }

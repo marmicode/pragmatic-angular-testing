@@ -7,8 +7,8 @@ describe(MealPlanner.name, () => {
   it('adds recipes', () => {
     const { mealPlanner, burger, salad } = createMealPlanner();
 
-    mealPlanner.addRecipe(burger);
-    mealPlanner.addRecipe(salad);
+    await mealPlanner.addRecipe(burger);
+    await mealPlanner.addRecipe(salad);
 
     expect(mealPlanner.getRecipes()).toEqual([
       expect.objectContaining({ name: 'Burger' }),
@@ -53,8 +53,8 @@ describe(MealPlanner.name, () => {
 
       observer.clear();
 
-      mealPlanner.addRecipe(burger);
-      mealPlanner.addRecipe(salad);
+      await mealPlanner.addRecipe(burger);
+      await mealPlanner.addRecipe(salad);
 
       expect(observer.next).toHaveBeenCalledTimes(2);
       expect(observer.next).toHaveBeenNthCalledWith(1, [
@@ -84,7 +84,7 @@ describe(MealPlanner.name, () => {
 
       observer.clear();
 
-      mealPlanner.addRecipe(burger);
+      await mealPlanner.addRecipe(burger);
 
       expect(observer.next).toHaveBeenCalledTimes(1);
       expect(observer.next).toHaveBeenCalledWith(false);
@@ -95,11 +95,11 @@ describe(MealPlanner.name, () => {
 
       using observer = observe(mealPlanner.watchCanAddRecipe(burger));
 
-      mealPlanner.addRecipe(burger);
+      await mealPlanner.addRecipe(burger);
 
       observer.clear();
 
-      mealPlanner.addRecipe(salad);
+      await mealPlanner.addRecipe(salad);
 
       expect(observer.next).not.toHaveBeenCalled();
     });
@@ -108,7 +108,7 @@ describe(MealPlanner.name, () => {
   function createMealPlannerWithBurger() {
     const { mealPlanner, burger, ...utils } = createMealPlanner();
 
-    mealPlanner.addRecipe(burger);
+    await mealPlanner.addRecipe(burger);
 
     return {
       mealPlanner,

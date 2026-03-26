@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { render, screen } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
-import { firstValueFrom } from 'rxjs';
 import { MealPlanner } from '../meal-planner/meal-planner';
 import { provideMealRepositoryFake } from '../meal-planner/meal-repository.fake';
 import { recipeMother } from '../testing/recipe.mother';
@@ -37,7 +36,7 @@ describe(RecipeSearch.name, () => {
 
     await userEvent.click(getFirstAddButton());
 
-    expect(await getMealPlannerRecipeNames()).toEqual(['Burger']);
+    expect(getMealPlannerRecipeNames()).toEqual(['Burger']);
   });
 
   it("should disable add button if can't add", async () => {
@@ -51,7 +50,7 @@ describe(RecipeSearch.name, () => {
   async function mountRecipeSearchWithBurgerInMealPlanner() {
     const { mealPlanner, whenStable, ...utils } = await mountRecipeSearch();
 
-    mealPlanner.addRecipe(recipeMother.withBasicInfo('Burger').build());
+    await mealPlanner.addRecipe(recipeMother.withBasicInfo('Burger').build());
 
     await whenStable();
 
@@ -77,9 +76,8 @@ describe(RecipeSearch.name, () => {
 
     return {
       mealPlanner,
-      async getMealPlannerRecipeNames() {
-        const recipes = await firstValueFrom(mealPlanner.recipes$);
-        return recipes.map((recipe) => recipe.name);
+      getMealPlannerRecipeNames() {
+        return mealPlanner.recipes().map((recipe) => recipe.name);
       },
       getFirstAddButton() {
         return screen.getAllByRole<HTMLButtonElement>('button', {
