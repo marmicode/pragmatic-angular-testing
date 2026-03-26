@@ -91,15 +91,24 @@ describe(MealPlanner.name, () => {
   }
 
   function createMealPlanner() {
+    const { getMealPlanner, ...utils } = setUpMealPlanner();
+
+    return {
+      mealPlanner: getMealPlanner(),
+      ...utils,
+    };
+  }
+
+  function setUpMealPlanner() {
     TestBed.configureTestingModule({
       providers: [provideMealRepositoryFake()],
     });
 
     return {
+      getMealPlanner: () => TestBed.inject(MealPlanner),
       burger: recipeMother.withBasicInfo('Burger').build(),
       burgerDuplicate: recipeMother.withBasicInfo('Burger').build(),
       salad: recipeMother.withBasicInfo('Salad').build(),
-      mealPlanner: TestBed.inject(MealPlanner),
       mealRepoFake: TestBed.inject(MealRepositoryFake),
     };
   }
