@@ -1,6 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-import { watch } from '@whiskmate/testing/watch';
-import { whenAppStable } from '@whiskmate/testing/when-app-stable';
 import { recipeMother } from '../testing/recipe.mother';
 import { MealPlanner } from './meal-planner';
 
@@ -11,7 +9,7 @@ describe(MealPlanner.name, () => {
     mealPlanner.addRecipe(burger);
     mealPlanner.addRecipe(salad);
 
-    expect(mealPlanner.recipes()).toEqual([
+    expect(mealPlanner.getRecipes()).toEqual([
       expect.objectContaining({ name: 'Burger' }),
       expect.objectContaining({ name: 'Salad' }),
     ]);
@@ -23,6 +21,12 @@ describe(MealPlanner.name, () => {
     expect(mealPlanner.canAddRecipe(burgerDuplicate)).toBe(false);
   });
 
+  it('allows new recipes', () => {
+    const { mealPlanner, salad } = createMealPlannerWithBurger();
+
+    expect(mealPlanner.canAddRecipe(salad)).toBe(true);
+  });
+
   it('throws error if recipe is already present', () => {
     const { mealPlanner, burgerDuplicate } = createMealPlannerWithBurger();
 
@@ -31,21 +35,8 @@ describe(MealPlanner.name, () => {
     );
   });
 
-  it.todo('🚧 adds recipes to meal repository', async () => {
+  it.todo('🚧 notifies when recipes change', async () => {
     throw new Error('🚧 Work in progress!');
-  });
-
-  it('notifies when recipes change', async () => {
-    const { mealPlanner, burger, salad } = createMealPlanner();
-
-    const recipes = watch(mealPlanner.recipes);
-
-    mealPlanner.addRecipe(burger);
-    mealPlanner.addRecipe(salad);
-
-    await whenAppStable();
-
-    expect(recipes()).toMatchObject([{ name: 'Burger' }, { name: 'Salad' }]);
   });
 
   describe('canAddRecipe', () => {
@@ -55,16 +46,8 @@ describe(MealPlanner.name, () => {
       expect(mealPlanner.canAddRecipe(salad)).toBe(true);
     });
 
-    it('notifies when recipes change', async () => {
-      const { mealPlanner, salad } = createMealPlannerWithBurger();
-
-      const canAddRecipe = watch(() => mealPlanner.canAddRecipe(salad));
-
-      mealPlanner.addRecipe(salad);
-
-      await whenAppStable();
-
-      expect(canAddRecipe()).toBe(false);
+    it.todo('🚧 notifies when recipes change', async () => {
+      throw new Error('🚧 Work in progress!');
     });
   });
 

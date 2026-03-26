@@ -1,20 +1,26 @@
 import { TestBed } from '@angular/core/testing';
-import { firstValueFrom } from 'rxjs';
-import { observe } from '@whiskmate/testing/observe';
+import { watch } from '@whiskmate/testing/watch';
+import { whenAppStable } from '@whiskmate/testing/when-app-stable';
 import { recipeMother } from '../testing/recipe.mother';
 import { MealPlanner } from './meal-planner';
 
 describe(MealPlanner.name, () => {
-  it('adds recipes', async () => {
+  it('adds recipes', () => {
     const { mealPlanner, burger, salad } = createMealPlanner();
 
     mealPlanner.addRecipe(burger);
     mealPlanner.addRecipe(salad);
 
-    expect(await firstValueFrom(mealPlanner.recipes$)).toEqual([
+    expect(mealPlanner.recipes()).toEqual([
       expect.objectContaining({ name: 'Burger' }),
       expect.objectContaining({ name: 'Salad' }),
     ]);
+  });
+
+  it('does not allow recipe duplicates', () => {
+    const { mealPlanner, burgerDuplicate } = createMealPlannerWithBurger();
+
+    expect(mealPlanner.canAddRecipe(burgerDuplicate)).toBe(false);
   });
 
   it('throws error if recipe is already present', () => {
@@ -29,72 +35,36 @@ describe(MealPlanner.name, () => {
     throw new Error('🚧 Work in progress!');
   });
 
-  describe('recipes$', () => {
-    it('emits empty array when no recipes', async () => {
-      const { mealPlanner } = createMealPlanner();
+  it('notifies when recipes change', async () => {
+    const { mealPlanner, burger, salad } = createMealPlanner();
 
-      using observer = observe(mealPlanner.recipes$);
+    const recipes = watch(mealPlanner.recipes);
 
-      expect(observer.next).toHaveBeenCalledTimes(1);
-      expect(observer.next).toHaveBeenCalledWith([]);
-    });
+    mealPlanner.addRecipe(burger);
+    mealPlanner.addRecipe(salad);
 
-    it('emits recipes when added', () => {
-      const { mealPlanner, burger, salad } = createMealPlanner();
+    await whenAppStable();
 
-      using observer = observe(mealPlanner.recipes$);
-
-      observer.clear();
-
-      mealPlanner.addRecipe(burger);
-      mealPlanner.addRecipe(salad);
-
-      expect(observer.next).toHaveBeenCalledTimes(2);
-      expect(observer.next).toHaveBeenNthCalledWith(1, [
-        expect.objectContaining({ name: 'Burger' }),
-      ]);
-      expect(observer.next).toHaveBeenNthCalledWith(2, [
-        expect.objectContaining({ name: 'Burger' }),
-        expect.objectContaining({ name: 'Salad' }),
-      ]);
-    });
+    expect(recipes()).toMatchObject([{ name: 'Burger' }, { name: 'Salad' }]);
   });
 
-  describe('watchCanAddRecipe()', () => {
-    it('emits instantly if recipe can be added', () => {
-      const { mealPlanner, burger } = createMealPlanner();
+  describe('canAddRecipe', () => {
+    it('allows new recipes', () => {
+      const { mealPlanner, salad } = createMealPlannerWithBurger();
 
-      using observer = observe(mealPlanner.watchCanAddRecipe(burger));
-
-      expect(observer.next).toHaveBeenCalledTimes(1);
-      expect(observer.next).toHaveBeenCalledWith(true);
+      expect(mealPlanner.canAddRecipe(salad)).toBe(true);
     });
 
-    it(`should emit false when recipe is added and can't be added anymore`, () => {
-      const { mealPlanner, burger } = createMealPlanner();
+    it('notifies when recipes change', async () => {
+      const { mealPlanner, salad } = createMealPlannerWithBurger();
 
-      using observer = observe(mealPlanner.watchCanAddRecipe(burger));
-
-      observer.clear();
-
-      mealPlanner.addRecipe(burger);
-
-      expect(observer.next).toHaveBeenCalledTimes(1);
-      expect(observer.next).toHaveBeenCalledWith(false);
-    });
-
-    it(`should not emit if result didn't change`, () => {
-      const { mealPlanner, burger, salad } = createMealPlanner();
-
-      using observer = observe(mealPlanner.watchCanAddRecipe(burger));
-
-      mealPlanner.addRecipe(burger);
-
-      observer.clear();
+      const canAddRecipe = watch(() => mealPlanner.canAddRecipe(salad));
 
       mealPlanner.addRecipe(salad);
 
-      expect(observer.next).not.toHaveBeenCalled();
+      await whenAppStable();
+
+      expect(canAddRecipe()).toBe(false);
     });
   });
 

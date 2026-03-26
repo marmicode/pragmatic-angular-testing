@@ -20,6 +20,7 @@
       "@whiskmate/testing/set-up-test-bed": [
         "libs/testing/src/set-up-test-bed.ts"
       ],
+      "@whiskmate/testing/watch": ["libs/testing/src/watch.ts"],
       "@whiskmate/testing/when-app-stable": [
         "libs/testing/src/when-app-stable.ts"
       ]

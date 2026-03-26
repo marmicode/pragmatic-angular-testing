@@ -31,10 +31,6 @@ describe(MealPlanner.name, () => {
     );
   });
 
-  it.todo('🚧 adds recipes to meal repository', async () => {
-    throw new Error('🚧 Work in progress!');
-  });
-
   it('notifies when recipes change', async () => {
     const { mealPlanner, burger, salad } = createMealPlanner();
 
