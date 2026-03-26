@@ -29,6 +29,7 @@ describe(RecipeSearch.name, () => {
     await updateFilter({
       keywords: 'Burg',
       maxIngredientCount: 3,
+      maxStepCount: null,
     });
 
     expect(getRecipeNames()).toEqual(['Burger']);
