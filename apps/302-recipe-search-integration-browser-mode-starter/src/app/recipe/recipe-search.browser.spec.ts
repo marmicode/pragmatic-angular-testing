@@ -18,7 +18,7 @@ describe(RecipeSearch.name, () => {
     TestBed.createComponent(RecipeSearch);
 
     return {
-      // TODO
+      // TODO: implement this
       recipeHeadings: null,
     };
   }
