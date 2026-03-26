@@ -29,20 +29,18 @@ describe(RecipeSearch.name, () => {
   });
 
   it('adds recipe to meal planner', async () => {
-    const { getFirstAddButton, getMealPlannerRecipeNames } =
-      await mountRecipeSearch();
+    const { addButtons, getMealPlannerRecipeNames } = await mountRecipeSearch();
 
-    await getFirstAddButton().click();
+    await addButtons.first().click();
 
     await expect.poll(() => getMealPlannerRecipeNames()).toEqual(['Burger']);
   });
 
   it("should disable add button if can't add", async () => {
-    const { getFirstAddButton } =
-      await mountRecipeSearchWithBurgerInMealPlanner();
+    const { addButtons } = await mountRecipeSearchWithBurgerInMealPlanner();
 
     /* Can't add burger because there is already a burger with the same id. */
-    await expect.element(getFirstAddButton()).toBeDisabled();
+    await expect.element(addButtons.first()).toBeDisabled();
   });
 
   async function mountRecipeSearchWithBurgerInMealPlanner() {
@@ -68,16 +66,13 @@ describe(RecipeSearch.name, () => {
     const mealPlanner = TestBed.inject(MealPlanner);
 
     return {
+      addButtons: page.getByRole('button', { name: 'ADD' }),
       mealPlanner,
       recipeHeadings: page.getByRole('heading'),
       getMealPlannerRecipeNames: () =>
         mealPlanner.recipes().map((recipe) => recipe.name),
-      getFirstAddButton() {
-        return page.getByRole('button', { name: 'ADD' }).first();
-      },
-      async updateFilter({ keywords }: { keywords: string }) {
-        await page.getByLabelText('Keywords').fill(keywords);
-      },
+      updateFilter: ({ keywords }: { keywords: string }) =>
+        page.getByLabelText('Keywords').fill(keywords),
     };
   }
 });
