@@ -9,7 +9,7 @@ import { RecipeSearch } from './recipe-search.ng';
 
 describe(RecipeSearch.name, () => {
   it.todo('🚧 searches recipes without filtering', async () => {
-    const { getRecipeNameEls } = await mountRecipeSearch();
+    const { recipeHeadings } = await mountRecipeSearch();
 
     throw new Error('🚧 Work in progress!');
   });
@@ -18,9 +18,8 @@ describe(RecipeSearch.name, () => {
     TestBed.createComponent(RecipeSearch);
 
     return {
-      getRecipeNameEls() {
-        throw new Error('🚧 Work in progress!');
-      },
+      // TODO
+      recipeHeadings: null,
     };
   }
 });
