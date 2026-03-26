@@ -17,13 +17,13 @@ describe(RecipeSearch.name, () => {
   });
 
   it('filters recipes by keywords', async () => {
-    const { getRecipeNameEls, updateFilter } = await mountRecipeSearch();
+    const { recipeHeadings, updateFilter } = await mountRecipeSearch();
 
     await updateFilter({
       keywords: 'Burg',
     });
 
-    await expect.element(getRecipeNameEls()).toHaveTextContent('Burger');
+    await expect.element(recipeHeadings).toHaveTextContent('Burger');
   });
 
   async function mountRecipeSearch() {
@@ -40,9 +40,8 @@ describe(RecipeSearch.name, () => {
 
     return {
       recipeHeadings: page.getByRole('heading'),
-      async updateFilter({ keywords }: { keywords: string }) {
-        await page.getByLabelText('Keywords').fill(keywords);
-      },
+      updateFilter: ({ keywords }: { keywords: string }) =>
+        page.getByLabelText('Keywords').fill(keywords),
     };
   }
 });
