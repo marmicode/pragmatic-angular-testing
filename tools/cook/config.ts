@@ -131,6 +131,10 @@ const exercises: Exercise[] = [
     name: '502 - Recipe Filter Debounce Integration',
   },
   {
+    id: '601-router-guard',
+    name: '601 - Router Guard',
+  },
+  {
     id: '801-recipe-preview-testronaut',
     name: '801 - Recipe Preview Playwright Component Testing',
   },
