@@ -39,7 +39,7 @@ export class RecipeAddButton {
 
   private _mealPlanner = inject(MealPlanner);
 
-  addRecipe() {
-    this._mealPlanner.addRecipe(this.recipe());
+  async addRecipe() {
+    await this._mealPlanner.addRecipe(this.recipe());
   }
 }
