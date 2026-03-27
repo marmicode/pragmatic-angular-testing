@@ -1,7 +1,7 @@
 ## Setup
 
 ```sh
-git switch testing-501-recipe-preview-testronaut-starter
+git switch testing-801-recipe-preview-testronaut-starter
 ```
 
 ## 🎯 Goal: Test `RecipePreviewComponent` using Cypress Component Testing

@@ -1,8 +1,8 @@
 {
-  "name": "504-playwright-visual-regression-testing-solution",
+  "name": "804-playwright-visual-regression-testing-solution",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/504-playwright-visual-regression-testing-solution/src",
+  "sourceRoot": "apps/804-playwright-visual-regression-testing-solution/src",
   "prefix": "wm",
   "tags": [],
   "targets": {

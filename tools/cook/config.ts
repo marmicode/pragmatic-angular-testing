@@ -111,20 +111,20 @@ const exercises: Exercise[] = [
     implementationFiles: [files.recipeFilter],
   },
   {
-    id: '501-recipe-preview-testronaut',
-    name: '501 - Recipe Preview Playwright Component Testing',
+    id: '801-recipe-preview-testronaut',
+    name: '801 - Recipe Preview Playwright Component Testing',
   },
   {
-    id: '502-recipe-filter-testronaut',
-    name: '502 - Recipe Filter Playwright Component Testing',
+    id: '802-recipe-filter-testronaut',
+    name: '802 - Recipe Filter Playwright Component Testing',
   },
   {
-    id: '503-recipe-search-testronaut',
-    name: '503 - Recipe Search Playwright Component Testing',
+    id: '803-recipe-search-testronaut',
+    name: '803 - Recipe Search Playwright Component Testing',
   },
   {
-    id: '504-playwright-visual-regression-testing',
-    name: '504 - Playwright Visual Regression Testing',
+    id: '804-playwright-visual-regression-testing',
+    name: '804 - Playwright Visual Regression Testing',
   },
 ];
 

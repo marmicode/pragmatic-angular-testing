@@ -1,7 +1,7 @@
 ## Setup
 
 ```sh
-git checkout origin/testing-502-recipe-filter-testronaut-starter
+git checkout origin/testing-802-recipe-filter-testronaut-starter
 ```
 
 ## 🎯 Goal: Test `RecipeFilterComponent` using Cypress Component Testing
