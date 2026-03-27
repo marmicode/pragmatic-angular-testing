@@ -29,6 +29,7 @@ describe(RecipeSearch.name, () => {
     await updateFilter({
       keywords: 'Burg',
       maxIngredientCount: 3,
+      maxStepCount: null,
     });
 
     expect(getRecipeNames()).toEqual(['Burger']);
@@ -54,7 +55,7 @@ describe(RecipeSearch.name, () => {
   async function mountRecipeSearchWithBurgerInMealPlanner() {
     const { mealPlanner, whenStable, ...utils } = await mountRecipeSearch();
 
-    mealPlanner.addRecipe(recipeMother.withBasicInfo('Burger').build());
+    await mealPlanner.addRecipe(recipeMother.withBasicInfo('Burger').build());
 
     await whenStable();
 
@@ -92,10 +93,8 @@ describe(RecipeSearch.name, () => {
           name: 'ADD',
         })[0];
       },
-      async getMealPlannerRecipeNames() {
-        const recipes = await firstValueFrom(mealPlanner.recipes$);
-        return recipes.map((recipe) => recipe.name);
-      },
+      getMealPlannerRecipeNames: () =>
+        mealPlanner.recipes().map((recipe) => recipe.name),
       getRecipeNames() {
         return debugElement
           .queryAll(By.css('wm-recipe-preview'))

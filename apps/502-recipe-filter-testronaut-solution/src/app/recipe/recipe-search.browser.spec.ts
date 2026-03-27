@@ -1,5 +1,4 @@
 import { TestBed } from '@angular/core/testing';
-import { firstValueFrom } from 'rxjs';
 import { page } from 'vitest/browser';
 import { MealPlanner } from '../meal-planner/meal-planner';
 import { provideMealRepositoryFake } from '../meal-planner/meal-repository.fake';
@@ -12,44 +11,42 @@ import { RecipeSearch } from './recipe-search.ng';
 
 describe(RecipeSearch.name, () => {
   it('searches recipes without filtering', async () => {
-    const { getRecipeNameEls } = await mountRecipeSearch();
+    const { recipeHeadings } = await mountRecipeSearch();
 
-    await expect.element(getRecipeNameEls()).toHaveLength(2);
-    await expect.element(getRecipeNameEls().nth(0)).toHaveTextContent('Burger');
-    await expect.element(getRecipeNameEls().nth(1)).toHaveTextContent('Salad');
+    await expect.element(recipeHeadings).toHaveLength(2);
+    await expect.element(recipeHeadings.nth(0)).toHaveTextContent('Burger');
+    await expect.element(recipeHeadings.nth(1)).toHaveTextContent('Salad');
   });
 
   it('filters recipes by keywords', async () => {
-    const { getRecipeNameEls, updateFilter } = await mountRecipeSearch();
+    const { recipeHeadings, updateFilter } = await mountRecipeSearch();
 
     await updateFilter({
       keywords: 'Burg',
     });
 
-    await expect.element(getRecipeNameEls()).toHaveTextContent('Burger');
+    await expect.element(recipeHeadings).toHaveTextContent('Burger');
   });
 
   it('adds recipe to meal planner', async () => {
-    const { getFirstAddButton, getMealPlannerRecipeNames } =
-      await mountRecipeSearch();
+    const { addButtons, getMealPlannerRecipeNames } = await mountRecipeSearch();
 
-    await getFirstAddButton().click();
+    await addButtons.first().click();
 
     await expect.poll(() => getMealPlannerRecipeNames()).toEqual(['Burger']);
   });
 
   it("should disable add button if can't add", async () => {
-    const { getFirstAddButton } =
-      await mountRecipeSearchWithBurgerInMealPlanner();
+    const { addButtons } = await mountRecipeSearchWithBurgerInMealPlanner();
 
     /* Can't add burger because there is already a burger with the same id. */
-    await expect.element(getFirstAddButton()).toBeDisabled();
+    await expect.element(addButtons.first()).toBeDisabled();
   });
 
   async function mountRecipeSearchWithBurgerInMealPlanner() {
     const { mealPlanner, ...utils } = await mountRecipeSearch();
 
-    mealPlanner.addRecipe(recipeMother.withBasicInfo('Burger').build());
+    await mealPlanner.addRecipe(recipeMother.withBasicInfo('Burger').build());
 
     return utils;
   }
@@ -69,20 +66,13 @@ describe(RecipeSearch.name, () => {
     const mealPlanner = TestBed.inject(MealPlanner);
 
     return {
+      addButtons: page.getByRole('button', { name: 'ADD' }),
       mealPlanner,
-      async getMealPlannerRecipeNames() {
-        const recipes = await firstValueFrom(mealPlanner.recipes$);
-        return recipes.map((recipe) => recipe.name);
-      },
-      getFirstAddButton() {
-        return page.getByRole('button', { name: 'ADD' }).first();
-      },
-      getRecipeNameEls() {
-        return page.getByRole('heading');
-      },
-      async updateFilter({ keywords }: { keywords: string }) {
-        await page.getByLabelText('Keywords').fill(keywords);
-      },
+      recipeHeadings: page.getByRole('heading'),
+      getMealPlannerRecipeNames: () =>
+        mealPlanner.recipes().map((recipe) => recipe.name),
+      updateFilter: ({ keywords }: { keywords: string }) =>
+        page.getByLabelText('Keywords').fill(keywords),
     };
   }
 });

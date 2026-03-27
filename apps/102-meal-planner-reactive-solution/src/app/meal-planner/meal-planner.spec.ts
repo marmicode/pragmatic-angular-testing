@@ -46,7 +46,7 @@ describe(MealPlanner.name, () => {
       expect(observer.next).toHaveBeenCalledWith([]);
     });
 
-    it('emits recipes when added', () => {
+    it('emits recipes when added', async () => {
       const { mealPlanner, burger, salad } = createMealPlanner();
 
       using observer = observe(mealPlanner.recipes$);
@@ -77,7 +77,7 @@ describe(MealPlanner.name, () => {
       expect(observer.next).toHaveBeenCalledWith(true);
     });
 
-    it(`should emit false when recipe is added and can't be added anymore`, () => {
+    it(`should emit false when recipe is added and can't be added anymore`, async () => {
       const { mealPlanner, burger } = createMealPlanner();
 
       using observer = observe(mealPlanner.watchCanAddRecipe(burger));
@@ -90,7 +90,7 @@ describe(MealPlanner.name, () => {
       expect(observer.next).toHaveBeenCalledWith(false);
     });
 
-    it(`should not emit if result didn't change`, () => {
+    it(`should not emit if result didn't change`, async () => {
       const { mealPlanner, burger, salad } = createMealPlanner();
 
       using observer = observe(mealPlanner.watchCanAddRecipe(burger));

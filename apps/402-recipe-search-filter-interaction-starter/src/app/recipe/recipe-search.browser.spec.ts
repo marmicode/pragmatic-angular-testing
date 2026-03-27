@@ -9,11 +9,11 @@ import { RecipeSearch } from './recipe-search.ng';
 
 describe(RecipeSearch.name, () => {
   it('searches recipes without filtering', async () => {
-    const { getRecipeNameEls } = await mountRecipeSearch();
+    const { recipeHeadings } = await mountRecipeSearch();
 
-    await expect.element(getRecipeNameEls()).toHaveLength(2);
-    await expect.element(getRecipeNameEls().nth(0)).toHaveTextContent('Burger');
-    await expect.element(getRecipeNameEls().nth(1)).toHaveTextContent('Salad');
+    await expect.element(recipeHeadings).toHaveLength(2);
+    await expect.element(recipeHeadings.nth(0)).toHaveTextContent('Burger');
+    await expect.element(recipeHeadings.nth(1)).toHaveTextContent('Salad');
   });
 
   it.todo('🚧 filters recipes by keywords', async () => {
@@ -33,10 +33,8 @@ describe(RecipeSearch.name, () => {
     TestBed.createComponent(RecipeSearch);
 
     return {
-      getRecipeNameEls() {
-        return page.getByRole('heading');
-      },
-      async updateFilter({ keywords }: { keywords: string }) {
+      recipeHeadings: page.getByRole('heading'),
+      updateFilter: ({ keywords }: { keywords: string }) => {
         // TODO: implement this
         throw new Error('🚧 Work in progress!');
       },

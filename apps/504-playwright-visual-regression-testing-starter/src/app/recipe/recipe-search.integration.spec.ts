@@ -51,7 +51,7 @@ describe(RecipeSearch.name, () => {
   async function mountRecipeSearchWithBurgerInMealPlanner() {
     const { mealPlanner, whenStable, ...utils } = await mountRecipeSearch();
 
-    mealPlanner.addRecipe(recipeMother.withBasicInfo('Burger').build());
+    await mealPlanner.addRecipe(recipeMother.withBasicInfo('Burger').build());
 
     await whenStable();
 
@@ -77,10 +77,8 @@ describe(RecipeSearch.name, () => {
 
     return {
       mealPlanner,
-      async getMealPlannerRecipeNames() {
-        const recipes = await firstValueFrom(mealPlanner.recipes$);
-        return recipes.map((recipe) => recipe.name);
-      },
+      getMealPlannerRecipeNames: () =>
+        mealPlanner.recipes().map((recipe) => recipe.name),
       getFirstAddButton() {
         return screen.getAllByRole<HTMLButtonElement>('button', {
           name: 'ADD',

@@ -20,6 +20,11 @@ const exercises: Exercise[] = [
     implementationFiles: [files.mealPlanner],
   },
   {
+    id: '103-meal-planner-signal-based',
+    name: '103 - Meal Planner Signal Based',
+    implementationFiles: [files.mealPlanner],
+  },
+  {
     id: '201-meal-planner-indirect-output',
     name: '201 - Meal Planner Indirect Output',
     implementationFiles: [files.mealPlanner],

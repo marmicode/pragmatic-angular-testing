@@ -1,6 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { firstValueFrom } from 'rxjs';
-import { observe } from '@whiskmate/testing/observe';
+import { watch } from '@whiskmate/testing/watch';
 import { recipeMother } from '../testing/recipe.mother';
 import { MealPlanner } from './meal-planner';
 import {
@@ -12,110 +11,78 @@ describe(MealPlanner.name, () => {
   it('adds recipes', async () => {
     const { mealPlanner, burger, salad } = createMealPlanner();
 
-    mealPlanner.addRecipe(burger);
-    mealPlanner.addRecipe(salad);
+    await mealPlanner.addRecipe(burger);
+    await mealPlanner.addRecipe(salad);
 
-    expect(await firstValueFrom(mealPlanner.recipes$)).toEqual([
+    expect(mealPlanner.recipes()).toEqual([
       expect.objectContaining({ name: 'Burger' }),
       expect.objectContaining({ name: 'Salad' }),
     ]);
   });
 
-  it('throws error if recipe is already present', () => {
-    const { mealPlanner, burgerDuplicate } = createMealPlannerWithBurger();
+  it('does not allow recipe duplicates', async () => {
+    const { mealPlanner, burgerDuplicate } =
+      await createMealPlannerWithBurger();
 
-    expect(() => mealPlanner.addRecipe(burgerDuplicate)).toThrow(
+    expect(mealPlanner.canAddRecipe(burgerDuplicate)).toBe(false);
+  });
+
+  it('throws error if recipe is already present', async () => {
+    const { mealPlanner, burgerDuplicate } =
+      await createMealPlannerWithBurger();
+
+    await expect(mealPlanner.addRecipe(burgerDuplicate)).rejects.toThrow(
       `Can't add recipe.`,
     );
   });
 
-  it('adds recipe to meal repository', () => {
+  it('adds recipes to meal repository', async () => {
     const { mealPlanner, mealRepoFake, burger } = createMealPlanner();
 
-    mealPlanner.addRecipe(burger);
+    await mealPlanner.addRecipe(burger);
 
     expect(mealRepoFake.getMealsSync()).toEqual([
       expect.objectContaining({ name: 'Burger' }),
     ]);
   });
 
+  it('notifies when recipes change', async () => {
+    const { mealPlanner, burger, salad } = createMealPlanner();
+
+    const recipes = watch(mealPlanner.recipes);
+
+    await mealPlanner.addRecipe(burger);
+    await mealPlanner.addRecipe(salad);
+
+    expect(recipes()).toMatchObject([{ name: 'Burger' }, { name: 'Salad' }]);
+  });
+
   it.todo('🚧 fetches recipes from meal repository', async () => {
     throw new Error('🚧 Work in progress!');
   });
 
-  describe('recipes$', () => {
-    it('emits empty array when no recipes', async () => {
-      const { mealPlanner } = createMealPlanner();
+  describe('canAddRecipe', () => {
+    it('allows new recipes', async () => {
+      const { mealPlanner, salad } = await createMealPlannerWithBurger();
 
-      using observer = observe(mealPlanner.recipes$);
-
-      expect(observer.next).toHaveBeenCalledTimes(1);
-      expect(observer.next).toHaveBeenCalledWith([]);
+      expect(mealPlanner.canAddRecipe(salad)).toBe(true);
     });
 
-    it('emits recipes when added', () => {
-      const { mealPlanner, burger, salad } = createMealPlanner();
+    it('notifies when recipes change', async () => {
+      const { mealPlanner, salad } = await createMealPlannerWithBurger();
 
-      using observer = observe(mealPlanner.recipes$);
+      const canAddRecipe = watch(() => mealPlanner.canAddRecipe(salad));
 
-      observer.clear();
+      await mealPlanner.addRecipe(salad);
 
-      mealPlanner.addRecipe(burger);
-      mealPlanner.addRecipe(salad);
-
-      expect(observer.next).toHaveBeenCalledTimes(2);
-      expect(observer.next).toHaveBeenNthCalledWith(1, [
-        expect.objectContaining({ name: 'Burger' }),
-      ]);
-      expect(observer.next).toHaveBeenNthCalledWith(2, [
-        expect.objectContaining({ name: 'Burger' }),
-        expect.objectContaining({ name: 'Salad' }),
-      ]);
+      expect(canAddRecipe()).toBe(false);
     });
   });
 
-  describe('watchCanAddRecipe()', () => {
-    it('emits instantly if recipe can be added', () => {
-      const { mealPlanner, burger } = createMealPlanner();
-
-      using observer = observe(mealPlanner.watchCanAddRecipe(burger));
-
-      expect(observer.next).toHaveBeenCalledTimes(1);
-      expect(observer.next).toHaveBeenCalledWith(true);
-    });
-
-    it(`should emit false when recipe is added and can't be added anymore`, () => {
-      const { mealPlanner, burger } = createMealPlanner();
-
-      using observer = observe(mealPlanner.watchCanAddRecipe(burger));
-
-      observer.clear();
-
-      mealPlanner.addRecipe(burger);
-
-      expect(observer.next).toHaveBeenCalledTimes(1);
-      expect(observer.next).toHaveBeenCalledWith(false);
-    });
-
-    it(`should not emit if result didn't change`, () => {
-      const { mealPlanner, burger, salad } = createMealPlanner();
-
-      using observer = observe(mealPlanner.watchCanAddRecipe(burger));
-
-      mealPlanner.addRecipe(burger);
-
-      observer.clear();
-
-      mealPlanner.addRecipe(salad);
-
-      expect(observer.next).not.toHaveBeenCalled();
-    });
-  });
-
-  function createMealPlannerWithBurger() {
+  async function createMealPlannerWithBurger() {
     const { mealPlanner, burger, ...utils } = createMealPlanner();
 
-    mealPlanner.addRecipe(burger);
+    await mealPlanner.addRecipe(burger);
 
     return {
       mealPlanner,
@@ -137,12 +104,8 @@ describe(MealPlanner.name, () => {
       providers: [provideMealRepositoryFake()],
     });
 
-    TestBed.inject(MealRepositoryFake);
-
     return {
-      getMealPlanner() {
-        return TestBed.inject(MealPlanner);
-      },
+      getMealPlanner: () => TestBed.inject(MealPlanner),
       burger: recipeMother.withBasicInfo('Burger').build(),
       burgerDuplicate: recipeMother.withBasicInfo('Burger').build(),
       salad: recipeMother.withBasicInfo('Salad').build(),

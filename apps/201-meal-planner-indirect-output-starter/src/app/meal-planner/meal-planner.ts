@@ -1,41 +1,22 @@
-import { distinctUntilChanged, map } from 'rxjs/operators';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { Injectable } from '@angular/core';
+import { Injectable, signal, untracked } from '@angular/core';
 import { Recipe } from '../recipe/recipe';
 
 @Injectable({
   providedIn: 'root',
 })
 export class MealPlanner {
-  recipes$: Observable<Recipe[]>;
+  private _recipes = signal<Recipe[]>([]);
 
-  private _recipes$ = new BehaviorSubject<Recipe[]>([]);
+  recipes = this._recipes.asReadonly();
 
-  constructor() {
-    this.recipes$ = this._recipes$.asObservable();
+  canAddRecipe(recipe: Recipe): boolean {
+    return this.recipes().find((r) => recipe.id === r.id) == null;
   }
 
-  addRecipe(recipe: Recipe) {
-    if (!this._canAddRecipe({ recipe, recipes: this._recipes$.value })) {
+  async addRecipe(recipe: Recipe) {
+    if (!untracked(() => this.canAddRecipe(recipe))) {
       throw new Error(`Can't add recipe.`);
     }
-    this._recipes$.next([...this._recipes$.value, recipe]);
-  }
-
-  watchCanAddRecipe(recipe: Recipe): Observable<boolean> {
-    return this._recipes$.pipe(
-      map((recipes) => this._canAddRecipe({ recipe, recipes })),
-      distinctUntilChanged()
-    );
-  }
-
-  private _canAddRecipe({
-    recipes,
-    recipe,
-  }: {
-    recipes: Recipe[];
-    recipe: Recipe;
-  }) {
-    return !recipes.find((_recipe) => _recipe.id === recipe.id);
+    this._recipes.update((recipes) => [...recipes, recipe]);
   }
 }

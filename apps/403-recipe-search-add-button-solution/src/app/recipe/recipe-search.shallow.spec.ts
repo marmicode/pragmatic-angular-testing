@@ -4,7 +4,6 @@ import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { render, screen } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
-import { firstValueFrom } from 'rxjs';
 import { MealPlanner } from '../meal-planner/meal-planner';
 import { provideMealRepositoryFake } from '../meal-planner/meal-repository.fake';
 import { RecipeAddButton } from '../meal-planner/recipe-add-button.ng';
@@ -29,6 +28,7 @@ describe(RecipeSearch.name, () => {
     await updateFilter({
       keywords: 'Burg',
       maxIngredientCount: 3,
+      maxStepCount: null,
     });
 
     expect(getRecipeNames()).toEqual(['Burger']);
@@ -54,7 +54,7 @@ describe(RecipeSearch.name, () => {
   async function mountRecipeSearchWithBurgerInMealPlanner() {
     const { mealPlanner, whenStable, ...utils } = await mountRecipeSearch();
 
-    mealPlanner.addRecipe(recipeMother.withBasicInfo('Burger').build());
+    await mealPlanner.addRecipe(recipeMother.withBasicInfo('Burger').build());
 
     await whenStable();
 
@@ -92,9 +92,8 @@ describe(RecipeSearch.name, () => {
           name: 'ADD',
         })[0];
       },
-      async getMealPlannerRecipeNames() {
-        const recipes = await firstValueFrom(mealPlanner.recipes$);
-        return recipes.map((recipe) => recipe.name);
+      getMealPlannerRecipeNames() {
+        return mealPlanner.recipes().map((recipe) => recipe.name);
       },
       getRecipeNames() {
         return debugElement

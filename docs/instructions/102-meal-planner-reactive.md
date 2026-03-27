@@ -23,7 +23,7 @@ You can choose to:
 
 It's time to get reactive!
 
-Instead of letting Angular poll recipes using `MealPlanner.getRecipes()`, we will subscribe to the `recipes$` property:
+To notify Angular that the recipes have changed, we have to provide a `recipes$` observable so that Angular can subscribe to it.
 
 ```ts
 class MealPlanner {

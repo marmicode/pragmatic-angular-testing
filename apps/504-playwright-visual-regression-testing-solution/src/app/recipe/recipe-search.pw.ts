@@ -35,10 +35,9 @@ const test = base.extend<{
 
       return {
         getMealPlannerRecipes: () =>
-          runInBrowser('get MealPlanner recipes', () => {
-            const mealPlanner = TestBed.inject(MealPlanner);
-            return firstValueFrom(mealPlanner.recipes$);
-          }),
+          runInBrowser('get MealPlanner recipes', () =>
+            TestBed.inject(MealPlanner).recipes(),
+          ),
         addRecipeToMealPlanner: (recipe: Recipe) =>
           runInBrowser(
             'add Recipe to MealPlanner',
