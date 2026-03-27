@@ -1,11 +1,17 @@
 import { outputBinding } from '@angular/core';
-import { render, screen } from '@testing-library/angular';
-import userEvent from '@testing-library/user-event';
-import { createSpy } from '@whiskmate/testing/create-spy';
+import { TestBed } from '@angular/core/testing';
+import { page } from 'vitest/browser';
 import { RecipeFilterCriteria } from './recipe-filter-criteria';
 import { RecipeFilter } from './recipe-filter.ng';
 
 describe(RecipeFilter.name, () => {
+  it.todo(
+    '🚧 does not trigger filterChange output before debounce',
+    async () => {
+      throw new Error('🚧 Work in progress!');
+    },
+  );
+
   it('triggers filterChange output', async () => {
     const { filterChangeSpy, setInputValue } = await mountRecipeFilter();
 
@@ -21,12 +27,11 @@ describe(RecipeFilter.name, () => {
   });
 
   async function mountRecipeFilter() {
-    const filterChangeSpy = createSpy();
+    const filterChangeSpy = vi.fn();
 
-    const { fixture } = await render(RecipeFilter, {
+    TestBed.createComponent(RecipeFilter, {
       bindings: [outputBinding('filterChange', filterChangeSpy)],
     });
-    await fixture.whenStable();
 
     return {
       filterChangeSpy,
@@ -34,8 +39,7 @@ describe(RecipeFilter.name, () => {
         label: 'Keywords' | 'Max Ingredients' | 'Max Steps',
         value: string,
       ) {
-        const inputEl = screen.getByLabelText(label);
-        await userEvent.type(inputEl, value);
+        await page.getByLabelText(label).fill(value);
       },
     };
   }

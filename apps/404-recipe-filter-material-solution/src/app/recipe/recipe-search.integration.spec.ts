@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 import { render, screen } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
-import { firstValueFrom } from 'rxjs';
 import { MealPlanner } from '../meal-planner/meal-planner';
 import { provideMealRepositoryFake } from '../meal-planner/meal-repository.fake';
 import { recipeMother } from '../testing/recipe.mother';
@@ -37,7 +36,7 @@ describe(RecipeSearch.name, () => {
 
     await userEvent.click(getFirstAddButton());
 
-    expect(await getMealPlannerRecipeNames()).toEqual(['Burger']);
+    expect(getMealPlannerRecipeNames()).toEqual(['Burger']);
   });
 
   it("disables add button if recipe can't be added", async () => {

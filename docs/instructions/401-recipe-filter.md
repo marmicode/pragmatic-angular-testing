@@ -33,15 +33,23 @@ This will be later used by `RecipeSearch` to filter results based on user filter
 pnpm test
 ```
 
-#### 2. Implement tests:
+#### 2. Open `src/app/recipe/recipe-filter.browser.spec.ts`.
 
-1.  Spy on `filterChange` output. _(Note that an `EventEmitter` is an `Observable`)_
+#### 3. Spy on `filterChange` output.
 
-2.  Fill the form inputs using the following `aria-label` attributes: `Keywords`, `Max Ingredients` and `Max Steps`.
+Create a spy `const filterChangeSpy = vi.fn();`, and use [outputBinding](https://angular.dev/api/core/outputBinding) to spy on the `filterChange` output (e.g. `outputBinding(outputName, spy)`).
 
-3.  Check that `filterChange` have been triggered.
+#### 4. Fill the form inputs using the following `aria-label` attributes: `Keywords`, `Max Ingredients` and `Max Steps`.
 
-#### 3. [optional] Checkout the implementation if you've opted for TDD option:.
+#### 5. Check that `filterChange` have been called with the correct value.
+
+```ts
+expect(filterChangeSpy).toHaveBeenLastCalledWith({
+  ...
+} satisfies RecipeFilterCriteria);
+```
+
+#### 6. [optional] Checkout the implementation if you've opted for TDD option:.
 
 ```sh
 pnpm cook checkout-impl

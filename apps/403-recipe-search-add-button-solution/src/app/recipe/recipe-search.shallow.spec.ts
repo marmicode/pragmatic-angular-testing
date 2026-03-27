@@ -40,7 +40,7 @@ describe(RecipeSearch.name, () => {
 
     await userEvent.click(getFirstAddButton());
 
-    expect(await getMealPlannerRecipeNames()).toEqual(['Burger']);
+    expect(getMealPlannerRecipeNames()).toEqual(['Burger']);
   });
 
   it("disables add button if recipe can't be added", async () => {
