@@ -28,6 +28,14 @@ describe(RecipeSearch.name, () => {
     expect(getRecipeNameEls()[0]).toHaveTextContent('Burger');
   });
 
+  it.todo('🚧 adds recipe to meal planner', async () => {
+    throw new Error('🚧 Work in progress!');
+  });
+
+  it.todo("🚧 disables add button if recipe can't be added", async () => {
+    throw new Error('🚧 Work in progress!');
+  });
+
   async function mountRecipeSearch() {
     const { fixture } = await render(RecipeSearch, {
       providers: [provideMealRepositoryFake(), provideRecipeRepositoryFake()],

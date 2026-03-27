@@ -44,7 +44,7 @@ describe(RecipeSearch.name, () => {
     expect(await getMealPlannerRecipeNames()).toEqual(['Burger']);
   });
 
-  it("should disable add button if can't add", async () => {
+  it("disables add button if recipe can't be added", async () => {
     const { getFirstAddButton } =
       await mountRecipeSearchWithBurgerInMealPlanner();
 
