@@ -1,8 +1,8 @@
 {
-  "name": "502-recipe-filter-testronaut-starter",
+  "name": "803-recipe-search-testronaut-solution",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/502-recipe-filter-testronaut-starter/src",
+  "sourceRoot": "apps/803-recipe-search-testronaut-solution/src",
   "prefix": "wm",
   "tags": [],
   "targets": {

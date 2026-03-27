@@ -1,8 +1,8 @@
 {
-  "name": "504-playwright-visual-regression-testing-starter",
+  "name": "801-recipe-preview-testronaut-starter",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/504-playwright-visual-regression-testing-starter/src",
+  "sourceRoot": "apps/801-recipe-preview-testronaut-starter/src",
   "prefix": "wm",
   "tags": [],
   "targets": {
