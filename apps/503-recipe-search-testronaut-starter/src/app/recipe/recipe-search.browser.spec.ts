@@ -36,7 +36,7 @@ describe(RecipeSearch.name, () => {
     await expect.poll(() => getMealPlannerRecipeNames()).toEqual(['Burger']);
   });
 
-  it("should disable add button if can't add", async () => {
+  it("disables add button if recipe can't be added", async () => {
     const { addButtons } = await mountRecipeSearchWithBurgerInMealPlanner();
 
     /* Can't add burger because there is already a burger with the same id. */
