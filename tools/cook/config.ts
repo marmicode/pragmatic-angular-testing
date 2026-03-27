@@ -111,6 +111,11 @@ const exercises: Exercise[] = [
     implementationFiles: [files.recipeFilter],
   },
   {
+    id: '501-recipe-filter-debounce',
+    name: '501 - Recipe Filter Debounce',
+    implementationFiles: [files.recipeFilter],
+  },
+  {
     id: '801-recipe-preview-testronaut',
     name: '801 - Recipe Preview Playwright Component Testing',
   },
