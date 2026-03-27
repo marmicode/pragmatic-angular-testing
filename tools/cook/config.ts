@@ -4,7 +4,10 @@ const files = {
   mealPlanner: 'src/app/meal-planner/meal-planner.ts',
   mealRepository: 'src/app/meal-planner/meal-repository.ts',
   recipeFilter: 'src/app/recipe/recipe-filter.ng.ts',
+  recipeFilterEmulatedTest: 'src/app/recipe/recipe-filter.spec.ts',
   recipeSearch: 'src/app/recipe/recipe-search.ng.ts',
+  recipeSearchIntegrationTest:
+    'src/app/recipe/recipe-search.integration.spec.ts',
   recipeSearchIsolatedTest: 'src/app/recipe/recipe-search.isolated.spec.ts',
 };
 
@@ -113,7 +116,15 @@ const exercises: Exercise[] = [
   {
     id: '501-recipe-filter-debounce',
     name: '501 - Recipe Filter Debounce',
-    implementationFiles: [files.recipeFilter],
+    implementationFiles: [
+      files.recipeFilter,
+      /* We want to focus on browser mode from now on,
+       * but we will keep the Jest/Vitest emulated tests for reference for now. */
+      files.recipeFilterEmulatedTest,
+      /* This test breaks when we debounce the filter.
+       * We want to keep it for reference without annoying the user with it. */
+      files.recipeSearchIntegrationTest,
+    ],
   },
   {
     id: '801-recipe-preview-testronaut',

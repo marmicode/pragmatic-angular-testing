@@ -5,6 +5,13 @@ import { RecipeFilterCriteria } from './recipe-filter-criteria';
 import { RecipeFilter } from './recipe-filter.ng';
 
 describe(RecipeFilter.name, () => {
+  it.todo(
+    '🚧 does not trigger filterChange output before debounce',
+    async () => {
+      throw new Error('🚧 Work in progress!');
+    },
+  );
+
   it('triggers filterChange output', async () => {
     const { filterChangeSpy, setInputValue } = await mountRecipeFilter();
 
