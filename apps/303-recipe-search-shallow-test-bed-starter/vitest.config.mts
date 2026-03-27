@@ -5,6 +5,7 @@ import vitestAngularPreset from './vitest-angular-preset';
 
 const emulatedTestPatterns = ['src/**/!(*.browser).spec.ts'];
 const browserTestPatterns = ['src/**/*.browser.spec.ts'];
+const isCI = !!process.env.CI;
 
 export default mergeConfig(
   mergeConfig(viteConfig, vitestAngularPreset),
@@ -20,7 +21,7 @@ export default mergeConfig(
       watch: false,
       pool: 'threads',
       isolate: false,
-      testTimeout: 1_500,
+      testTimeout: isCI ? 3_000 : 500,
       projects: [
         {
           extends: true,
