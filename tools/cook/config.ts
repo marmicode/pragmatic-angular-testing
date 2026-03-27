@@ -4,7 +4,7 @@ const files = {
   mealPlanner: 'src/app/meal-planner/meal-planner.ts',
   mealRepository: 'src/app/meal-planner/meal-repository.ts',
   recipeFilter: 'src/app/recipe/recipe-filter.ng.ts',
-  recipeFilterEmulatedTest: 'src/app/recipe/recipe-filter.spec.ts',
+  recipeFilterVitestTest: 'src/app/recipe/recipe-filter.vitest.spec.ts',
   recipeSearch: 'src/app/recipe/recipe-search.ng.ts',
   recipeSearchIntegrationTest:
     'src/app/recipe/recipe-search.integration.spec.ts',
@@ -120,7 +120,7 @@ const exercises: Exercise[] = [
       files.recipeFilter,
       /* We want to focus on browser mode from now on,
        * but we will keep the Jest/Vitest emulated tests for reference for now. */
-      files.recipeFilterEmulatedTest,
+      files.recipeFilterVitestTest,
       /* This test breaks when we debounce the filter.
        * We want to keep it for reference without annoying the user with it. */
       files.recipeSearchIntegrationTest,
