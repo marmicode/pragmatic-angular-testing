@@ -127,6 +127,10 @@ const exercises: Exercise[] = [
     ],
   },
   {
+    id: '502-recipe-filter-debounce-integration',
+    name: '502 - Recipe Filter Debounce Integration',
+  },
+  {
     id: '801-recipe-preview-testronaut',
     name: '801 - Recipe Preview Playwright Component Testing',
   },

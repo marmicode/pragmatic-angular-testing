@@ -1,9 +1,14 @@
+import { AsyncPipe } from '@angular/common';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
-import { render, screen, waitFor } from '@testing-library/angular';
+import { By } from '@angular/platform-browser';
+import { render, screen } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
 import { MealPlanner } from '../meal-planner/meal-planner';
 import { provideMealRepositoryFake } from '../meal-planner/meal-repository.fake';
+import { RecipeAddButton } from '../meal-planner/recipe-add-button.ng';
 import { recipeMother } from '../testing/recipe.mother';
+import { RecipeFilterCriteria } from './recipe-filter-criteria';
 import {
   provideRecipeRepositoryFake,
   RecipeRepositoryFake,
@@ -12,27 +17,21 @@ import { RecipeSearch } from './recipe-search.ng';
 
 describe(RecipeSearch.name, () => {
   it('searches recipes without filtering', async () => {
-    const { getRecipeNameEls } = await mountRecipeSearch();
+    const { getRecipeNames } = await mountRecipeSearch();
 
-    expect(getRecipeNameEls()).toHaveLength(2);
-    expect(getRecipeNameEls()[0]).toHaveTextContent('Burger');
-    expect(getRecipeNameEls()[1]).toHaveTextContent('Salad');
+    expect(getRecipeNames()).toEqual(['Burger', 'Salad']);
   });
 
-  it('filters recipes by keywords', async () => {
-    const { getRecipeNameEls, updateFilter } = await mountRecipeSearch();
+  it('searches recipes using given filter', async () => {
+    const { getRecipeNames, updateFilter } = await mountRecipeSearch();
 
     await updateFilter({
       keywords: 'Burg',
+      maxIngredientCount: 3,
+      maxStepCount: null,
     });
 
-    /* Using `waitFor` from Testing Library to be compatible with both Jest and Vitest.
-     * On Vitest, one can poll using `expect.element` or `expect.poll` or `vi.waitFor`. */
-    await waitFor(() => {
-      const recipeNameEls = getRecipeNameEls();
-      expect(recipeNameEls).toHaveLength(1);
-      expect(recipeNameEls[0]).toHaveTextContent('Burger');
-    });
+    expect(getRecipeNames()).toEqual(['Burger']);
   });
 
   it('adds recipe to meal planner', async () => {
@@ -59,13 +58,20 @@ describe(RecipeSearch.name, () => {
 
     await whenStable();
 
-    return utils;
+    return { ...utils };
   }
 
   async function mountRecipeSearch() {
-    const { fixture } = await render(RecipeSearch, {
+    const { debugElement, fixture } = await render(RecipeSearch, {
       providers: [provideMealRepositoryFake(), provideRecipeRepositoryFake()],
       configureTestBed(testBed) {
+        testBed.overrideComponent(RecipeSearch, {
+          set: {
+            imports: [AsyncPipe, RecipeAddButton],
+            schemas: [CUSTOM_ELEMENTS_SCHEMA],
+          },
+        });
+
         testBed
           .inject(RecipeRepositoryFake)
           .setRecipes([
@@ -75,24 +81,28 @@ describe(RecipeSearch.name, () => {
       },
     });
 
-    const mealPlanner = TestBed.inject(MealPlanner);
-
     await fixture.whenStable();
+
+    const mealPlanner = TestBed.inject(MealPlanner);
 
     return {
       mealPlanner,
-      getMealPlannerRecipeNames: () =>
-        mealPlanner.recipes().map((recipe) => recipe.name),
       getFirstAddButton() {
         return screen.getAllByRole<HTMLButtonElement>('button', {
           name: 'ADD',
         })[0];
       },
-      getRecipeNameEls() {
-        return screen.queryAllByRole('heading');
+      getMealPlannerRecipeNames: () =>
+        mealPlanner.recipes().map((recipe) => recipe.name),
+      getRecipeNames() {
+        return debugElement
+          .queryAll(By.css('wm-recipe-preview'))
+          .map((previewEl) => previewEl.properties.recipe.name);
       },
-      async updateFilter({ keywords }: { keywords: string }) {
-        await userEvent.type(screen.getByLabelText('Keywords'), keywords);
+      async updateFilter(filter: RecipeFilterCriteria) {
+        debugElement
+          .query(By.css('wm-recipe-filter'))
+          .triggerEventHandler('filterChange', filter);
         await fixture.whenStable();
       },
       async whenStable() {
