@@ -84,3 +84,9 @@ expect(filterChangeSpy).toHaveBeenLastCalledWith(
 ```sh
 pnpm cook checkout-impl
 ```
+
+#### 7. Have a look at the `src/app/recipe/recipe-search.integration.spec.ts` and `src/app/recipe/recipe-search.browser.spec.ts`
+
+`recipe-search.browser.spec.ts` did not need any changes even though we introduced the debounce, thanks to polling (i.e. `expect.element`).
+
+While on the other hand, `recipe-search.integration.spec.ts` needed to be updated to use `waitFor` from Testing Library to add polling that is jest-compatible.
