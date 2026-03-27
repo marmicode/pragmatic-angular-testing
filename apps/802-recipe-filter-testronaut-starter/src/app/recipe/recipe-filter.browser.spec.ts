@@ -5,26 +5,44 @@ import { RecipeFilterCriteria } from './recipe-filter-criteria';
 import { RecipeFilter } from './recipe-filter.ng';
 
 describe(RecipeFilter.name, () => {
-  it('triggers filterChange output', async () => {
+  it('does not trigger filterChange output before debounce', async () => {
     const { filterChangeSpy, setInputValue } = await mountRecipeFilter();
 
     await setInputValue('Keywords', 'Cauliflower');
-    await setInputValue('Max Ingredients', '3');
-    await setInputValue('Max Steps', '10');
 
-    expect(filterChangeSpy).toHaveBeenLastCalledWith({
-      keywords: 'Cauliflower',
-      maxIngredientCount: 3,
-      maxStepCount: 10,
-    } satisfies RecipeFilterCriteria);
+    await vi.advanceTimersByTimeAsync(290);
+
+    expect(filterChangeSpy).not.toHaveBeenCalled();
+  });
+
+  it('triggers filterChange output after debounce', async () => {
+    const { filterChangeSpy, setInputValue } = await mountRecipeFilter();
+
+    await setInputValue('Keywords', 'Cauliflower');
+
+    await vi.advanceTimersByTimeAsync(310);
+
+    expect(filterChangeSpy).toHaveBeenLastCalledWith(
+      expect.objectContaining({
+        keywords: 'Cauliflower',
+      } satisfies Partial<RecipeFilterCriteria>),
+    );
   });
 
   async function mountRecipeFilter() {
+    vi.useFakeTimers();
+
+    onTestFinished(() => {
+      vi.useRealTimers();
+    });
+
     const filterChangeSpy = vi.fn();
 
     TestBed.createComponent(RecipeFilter, {
       bindings: [outputBinding('filterChange', filterChangeSpy)],
     });
+
+    await vi.runAllTimersAsync();
 
     return {
       filterChangeSpy,

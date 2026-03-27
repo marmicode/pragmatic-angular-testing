@@ -1,7 +1,6 @@
 import { TestBed } from '@angular/core/testing';
-import { render, screen } from '@testing-library/angular';
+import { render, screen, waitFor } from '@testing-library/angular';
 import userEvent from '@testing-library/user-event';
-import { firstValueFrom } from 'rxjs';
 import { MealPlanner } from '../meal-planner/meal-planner';
 import { provideMealRepositoryFake } from '../meal-planner/meal-repository.fake';
 import { recipeMother } from '../testing/recipe.mother';
@@ -27,8 +26,13 @@ describe(RecipeSearch.name, () => {
       keywords: 'Burg',
     });
 
-    expect(getRecipeNameEls()).toHaveLength(1);
-    expect(getRecipeNameEls()[0]).toHaveTextContent('Burger');
+    /* Using `waitFor` from Testing Library to be compatible with both Jest and Vitest.
+     * On Vitest, one can poll using `expect.element` or `expect.poll` or `vi.waitFor`. */
+    await waitFor(() => {
+      const recipeNameEls = getRecipeNameEls();
+      expect(recipeNameEls).toHaveLength(1);
+      expect(recipeNameEls[0]).toHaveTextContent('Burger');
+    });
   });
 
   it('adds recipe to meal planner', async () => {
@@ -37,7 +41,7 @@ describe(RecipeSearch.name, () => {
 
     await userEvent.click(getFirstAddButton());
 
-    expect(await getMealPlannerRecipeNames()).toEqual(['Burger']);
+    expect(getMealPlannerRecipeNames()).toEqual(['Burger']);
   });
 
   it("disables add button if recipe can't be added", async () => {
