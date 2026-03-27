@@ -63,6 +63,11 @@ describe(RecipeSearch.name, () => {
   }
 
   async function mountRecipeSearch() {
+    vi.useFakeTimers().setTimerTickMode('nextTimerAsync');
+    onTestFinished(() => {
+      vi.useRealTimers();
+    });
+
     const { fixture } = await render(RecipeSearch, {
       providers: [provideMealRepositoryFake(), provideRecipeRepositoryFake()],
       configureTestBed(testBed) {
