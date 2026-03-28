@@ -39,10 +39,9 @@ describe(RecipeSearch.name, () => {
     await whenAppStable();
 
     return {
-      getRecipeNames() {
-        return component.recipes.value()?.map((recipe) => recipe.name);
-      },
-      async updateFilter({ keywords }: { keywords: string }) {
+      getRecipeNames: () =>
+        component.recipes.value()?.map((recipe) => recipe.name),
+      updateFilter: async ({ keywords }: { keywords: string }) => {
         component.filter.set({ keywords });
         await whenAppStable();
       },

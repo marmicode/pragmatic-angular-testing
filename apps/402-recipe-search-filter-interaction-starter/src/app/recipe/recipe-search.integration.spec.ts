@@ -35,10 +35,8 @@ describe(RecipeSearch.name, () => {
     await fixture.whenStable();
 
     return {
-      getRecipeNameEls() {
-        return screen.queryAllByRole('heading');
-      },
-      async updateFilter({ keywords }: { keywords: string }) {
+      getRecipeNameEls: () => screen.queryAllByRole('heading'),
+      updateFilter: async ({ keywords }: { keywords: string }) => {
         // TODO: implement this
         throw new Error('🚧 Work in progress!');
       },
