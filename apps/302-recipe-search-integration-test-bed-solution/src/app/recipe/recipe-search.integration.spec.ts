@@ -28,11 +28,10 @@ describe(RecipeSearch.name, () => {
     await fixture.whenStable();
 
     return {
-      getRecipeNames() {
-        return fixture.debugElement
+      getRecipeNames: () =>
+        fixture.debugElement
           .queryAll(By.css('[data-testid=recipe-name]'))
-          .map((el) => el.nativeElement.textContent);
-      },
+          .map((el) => el.nativeElement.textContent),
     };
   }
 });

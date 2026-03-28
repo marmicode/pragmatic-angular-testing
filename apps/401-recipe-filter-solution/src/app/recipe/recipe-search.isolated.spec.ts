@@ -26,9 +26,7 @@ describe(RecipeSearch.name, () => {
     const component = TestBed.inject(RecipeSearch);
 
     return {
-      getRecipeNames() {
-        return component.recipes()?.map((recipe) => recipe.name);
-      },
+      getRecipeNames: () => component.recipes()?.map((recipe) => recipe.name),
     };
   }
 });

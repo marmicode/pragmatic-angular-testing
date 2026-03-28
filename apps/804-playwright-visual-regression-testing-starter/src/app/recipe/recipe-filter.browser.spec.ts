@@ -46,10 +46,10 @@ describe(RecipeFilter.name, () => {
 
     return {
       filterChangeSpy,
-      async setInputValue(
+      setInputValue: async (
         label: 'Keywords' | 'Max Ingredients' | 'Max Steps',
         value: string,
-      ) {
+      ) => {
         await page.getByLabelText(label).fill(value);
       },
     };

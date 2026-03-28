@@ -35,10 +35,8 @@ describe(MealRepository.name, () => {
     return {
       burger,
       salad,
-      getMealRepo() {
-        return TestBed.inject(MealRepository);
-      },
-      setStorageValue(value: string) {
+      getMealRepo: () => TestBed.inject(MealRepository),
+      setStorageValue: (value: string) => {
         // @todo
       },
     };

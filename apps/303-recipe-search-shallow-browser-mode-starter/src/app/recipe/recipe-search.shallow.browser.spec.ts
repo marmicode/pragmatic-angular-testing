@@ -26,7 +26,7 @@ describe(RecipeSearch.name, () => {
     TestBed.createComponent(RecipeSearch);
 
     return {
-      getRecipeNames() {
+      getRecipeNames: () => {
         throw new Error('😱 Not implemented yet!');
       },
     };

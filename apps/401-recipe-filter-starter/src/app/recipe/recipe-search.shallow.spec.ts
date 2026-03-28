@@ -38,11 +38,10 @@ describe(RecipeSearch.name, () => {
     await fixture.whenStable();
 
     return {
-      getRecipeNames() {
-        return debugElement
+      getRecipeNames: () =>
+        debugElement
           .queryAll(By.css('wm-recipe-preview'))
-          .map((previewEl) => previewEl.properties.recipe.name);
-      },
+          .map((previewEl) => previewEl.properties.recipe.name),
     };
   }
 });

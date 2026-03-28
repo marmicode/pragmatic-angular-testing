@@ -43,10 +43,8 @@ describe(RecipeSearch.name, () => {
     await fixture.whenStable();
 
     return {
-      getRecipeNameEls() {
-        return screen.queryAllByRole('heading');
-      },
-      async updateFilter({ keywords }: { keywords: string }) {
+      getRecipeNameEls: () => screen.queryAllByRole('heading'),
+      updateFilter: async ({ keywords }: { keywords: string }) => {
         await userEvent.type(screen.getByLabelText('Keywords'), keywords);
         await fixture.whenStable();
       },

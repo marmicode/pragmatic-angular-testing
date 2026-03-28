@@ -25,7 +25,7 @@ describe(RecipeSearch.name, () => {
     await fixture.whenStable();
 
     return {
-      getRecipeNames() {
+      getRecipeNames: () => {
         throw new Error('😱 Not implemented yet!');
       },
     };
