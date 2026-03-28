@@ -1,7 +1,7 @@
 export const mealPlannerRouterHelper = {
   MEAL_PLAN_PATH: 'meal-plan',
 
-  mealPlanRoute() {
+  mealPlan() {
     return ['/', this.MEAL_PLAN_PATH];
   },
 };

@@ -1,7 +1,8 @@
 import { Routes } from '@angular/router';
-import { recipeRouterHelper } from './recipe/recipe.router-helper';
-import { RecipeSearch } from './recipe/recipe-search.ng';
 import { mealPlannerRouterHelper } from './meal-planner/meal-planner.router-helper';
+import { RecipeSearch } from './recipe/recipe-search.ng';
+import { recipeRouterHelper } from './recipe/recipe.router-helper';
+import { isSignedInGuard } from './user/is-signed-in.guard';
 
 export const routes: Routes = [
   {
@@ -10,6 +11,7 @@ export const routes: Routes = [
   },
   {
     path: mealPlannerRouterHelper.MEAL_PLAN_PATH,
+    canActivate: [isSignedInGuard],
     loadComponent: () => import('./meal-planner/meal-plan.ng'),
   },
   {
