@@ -35,12 +35,10 @@ describe(RecipeFilter.name, () => {
 
     return {
       filterChangeSpy,
-      setInputValue: async (
+      setInputValue: (
         label: 'Keywords' | 'Max Ingredients' | 'Max Steps',
         value: string,
-      ) => {
-        await page.getByLabelText(label).fill(value);
-      },
+      ) => page.getByLabelText(label).fill(value),
     };
   }
 });
