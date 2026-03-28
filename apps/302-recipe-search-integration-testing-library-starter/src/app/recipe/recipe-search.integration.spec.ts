@@ -18,7 +18,7 @@ describe(RecipeSearch.name, () => {
     await fixture.whenStable();
 
     return {
-      getRecipeNameEls() {
+      getRecipeNameEls: () => {
         throw new Error('🚧 Work in progress!');
       },
     };

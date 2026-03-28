@@ -30,10 +30,10 @@ describe(RecipeFilter.name, () => {
 
     return {
       filterChangeSpy,
-      async setInputValue(
+      setInputValue: async (
         label: 'Keywords' | 'Max Ingredients' | 'Max Steps',
         value: string,
-      ) {
+      ) => {
         const inputEl = screen.getByLabelText(label);
         await userEvent.type(inputEl, value);
       },

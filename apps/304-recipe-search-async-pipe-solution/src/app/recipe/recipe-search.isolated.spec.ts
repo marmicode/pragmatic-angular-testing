@@ -28,7 +28,7 @@ describe(RecipeSearch.name, () => {
 
     return {
       component,
-      async getRecipeNames() {
+      getRecipeNames: async () => {
         const recipes = await firstValueFrom(component.recipes$);
         return recipes.map((recipe) => recipe.name);
       },

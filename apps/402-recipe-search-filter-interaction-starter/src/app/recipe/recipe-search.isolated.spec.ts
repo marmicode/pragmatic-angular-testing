@@ -30,10 +30,8 @@ describe(RecipeSearch.name, () => {
     const component = TestBed.inject(RecipeSearch);
 
     return {
-      getRecipeNames() {
-        return component.recipes()?.map((recipe) => recipe.name);
-      },
-      async updateFilter({ keywords }: { keywords: string }) {
+      getRecipeNames: () => component.recipes()?.map((recipe) => recipe.name),
+      updateFilter: async ({ keywords }: { keywords: string }) => {
         // TODO: implement this
         throw new Error('🚧 Work in progress!');
       },

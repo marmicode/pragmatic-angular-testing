@@ -58,12 +58,11 @@ describe(RecipeSearch.name, () => {
     await fixture.whenStable();
 
     return {
-      getRecipeNames() {
-        return debugElement
+      getRecipeNames: () =>
+        debugElement
           .queryAll(By.css('wm-recipe-preview'))
-          .map((previewEl) => previewEl.properties.recipe.name);
-      },
-      async updateFilter(filter: RecipeFilterCriteria) {
+          .map((previewEl) => previewEl.properties.recipe.name),
+      updateFilter: async (filter: RecipeFilterCriteria) => {
         debugElement
           .query(By.css('wm-recipe-filter'))
           .triggerEventHandler('filterChange', filter);

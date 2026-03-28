@@ -76,24 +76,18 @@ describe(RecipeSearch.name, () => {
 
     return {
       mealPlanner,
-      getMealPlannerRecipeNames() {
-        return mealPlanner.recipes().map((recipe) => recipe.name);
-      },
-      getFirstAddButton() {
-        return screen.getAllByRole<HTMLButtonElement>('button', {
+      getMealPlannerRecipeNames: () =>
+        mealPlanner.recipes().map((recipe) => recipe.name),
+      getFirstAddButton: () =>
+        screen.getAllByRole<HTMLButtonElement>('button', {
           name: 'ADD',
-        })[0];
-      },
-      getRecipeNameEls() {
-        return screen.queryAllByRole('heading');
-      },
-      async updateFilter({ keywords }: { keywords: string }) {
+        })[0],
+      getRecipeNameEls: () => screen.queryAllByRole('heading'),
+      updateFilter: async ({ keywords }: { keywords: string }) => {
         await userEvent.type(screen.getByLabelText('Keywords'), keywords);
         await fixture.whenStable();
       },
-      async whenStable() {
-        return fixture.whenStable();
-      },
+      whenStable: () => fixture.whenStable(),
     };
   }
 });

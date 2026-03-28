@@ -87,28 +87,23 @@ describe(RecipeSearch.name, () => {
 
     return {
       mealPlanner,
-      getFirstAddButton() {
-        return screen.getAllByRole<HTMLButtonElement>('button', {
+      getFirstAddButton: () =>
+        screen.getAllByRole<HTMLButtonElement>('button', {
           name: 'ADD',
-        })[0];
-      },
-      getMealPlannerRecipeNames() {
-        return mealPlanner.recipes().map((recipe) => recipe.name);
-      },
-      getRecipeNames() {
-        return debugElement
+        })[0],
+      getMealPlannerRecipeNames: () =>
+        mealPlanner.recipes().map((recipe) => recipe.name),
+      getRecipeNames: () =>
+        debugElement
           .queryAll(By.css('wm-recipe-preview'))
-          .map((previewEl) => previewEl.properties.recipe.name);
-      },
-      async updateFilter(filter: RecipeFilterCriteria) {
+          .map((previewEl) => previewEl.properties.recipe.name),
+      updateFilter: async (filter: RecipeFilterCriteria) => {
         debugElement
           .query(By.css('wm-recipe-filter'))
           .triggerEventHandler('filterChange', filter);
         await fixture.whenStable();
       },
-      async whenStable() {
-        return fixture.whenStable();
-      },
+      whenStable: () => fixture.whenStable(),
     };
   }
 });

@@ -36,12 +36,11 @@ describe(RecipeSearch.name, () => {
     TestBed.createComponent(RecipeSearch);
 
     return {
-      getRecipeNames() {
-        return page
+      getRecipeNames: () =>
+        page
           .getByTestId('recipe-preview')
           .elements()
-          .map((el) => new DebugElement(el).properties.recipe.name);
-      },
+          .map((el) => new DebugElement(el).properties.recipe.name),
     };
   }
 });

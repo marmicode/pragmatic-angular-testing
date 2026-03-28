@@ -31,9 +31,7 @@ describe(RecipeSearch.name, () => {
     await fixture.whenStable();
 
     return {
-      getRecipeNameEls() {
-        return screen.queryAllByRole('heading');
-      },
+      getRecipeNameEls: () => screen.queryAllByRole('heading'),
     };
   }
 });

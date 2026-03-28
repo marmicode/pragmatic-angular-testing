@@ -36,13 +36,12 @@ describe(RecipeSearch.name, () => {
     await fixture.whenStable();
 
     return {
-      getRecipeNames() {
-        return screen
+      getRecipeNames: () =>
+        screen
           .getAllByTestId('recipe-preview')
           .map(
             (previewEl) => new DebugElement(previewEl).properties.recipe.name,
-          );
-      },
+          ),
     };
   }
 });
