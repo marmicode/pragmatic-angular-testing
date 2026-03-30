@@ -37,7 +37,7 @@ describe(isSignedInGuard.name, () => {
   it('prevents navigation if user is is not signed in and has already navigated', async () => {
     const { getCurrentUrl, navigate } = await setUp();
 
-    await navigate('/search');
+    await navigate('/landing');
 
     await navigate('/meal-plan');
 
