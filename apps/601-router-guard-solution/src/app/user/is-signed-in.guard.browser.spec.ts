@@ -17,7 +17,7 @@ describe(isSignedInGuard.name, () => {
 
     auth.signIn();
 
-    await navigate('meal-plan');
+    await navigate('/meal-plan');
 
     expect.soft(getCurrentUrl()).toBe('/meal-plan');
     await expect
@@ -28,7 +28,7 @@ describe(isSignedInGuard.name, () => {
   it('redirects to /search if user is is not signed in and first visit', async () => {
     const { getCurrentUrl, navigate } = await setUp();
 
-    await navigate('meal-plan');
+    await navigate('/meal-plan');
 
     expect.soft(getCurrentUrl()).toBe('/search');
     await expect.element(page.getByRole('heading')).toHaveTextContent('Search');
@@ -37,9 +37,9 @@ describe(isSignedInGuard.name, () => {
   it('prevents navigation if user is is not signed in and has already navigated', async () => {
     const { getCurrentUrl, navigate } = await setUp();
 
-    await navigate('landing');
+    await navigate('/search');
 
-    await navigate('meal-plan');
+    await navigate('/meal-plan');
 
     expect.soft(getCurrentUrl()).toBe('/landing');
     await expect
@@ -81,7 +81,10 @@ async function setUp() {
     auth: TestBed.inject(Auth),
     getCurrentUrl: () => TestBed.inject(Router).url,
     navigate: async (
-      url: 'landing' | typeof recipeRouterHelper.SEARCH_PATH | 'meal-plan',
+      url:
+        | '/landing'
+        | `/${typeof recipeRouterHelper.SEARCH_PATH}`
+        | '/meal-plan',
     ) => {
       if (!harness) {
         harness = await RouterTestingHarness.create(url);
