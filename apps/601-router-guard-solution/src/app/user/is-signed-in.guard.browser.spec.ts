@@ -48,7 +48,7 @@ describe(isSignedInGuard.name, () => {
   });
 });
 
-async function setUp() {
+function setUp() {
   TestBed.configureTestingModule({
     providers: [
       provideRouter(
