@@ -13,7 +13,7 @@ import { isSignedInGuard } from './is-signed-in.guard';
 
 describe(isSignedInGuard.name, () => {
   it('allows access to the route if user is signed in', async () => {
-    const { auth, getCurrentUrl, navigate } = await setUp();
+    const { auth, getCurrentUrl, navigate } = setUp();
 
     auth.signIn();
 
@@ -25,17 +25,8 @@ describe(isSignedInGuard.name, () => {
       .toHaveTextContent('Meal Plan');
   });
 
-  it('redirects to /search if user is is not signed in and first visit', async () => {
-    const { getCurrentUrl, navigate } = await setUp();
-
-    await navigate('/meal-plan');
-
-    expect.soft(getCurrentUrl()).toBe('/search');
-    await expect.element(page.getByRole('heading')).toHaveTextContent('Search');
-  });
-
   it('prevents navigation if user is is not signed in and has already navigated', async () => {
-    const { getCurrentUrl, navigate } = await setUp();
+    const { getCurrentUrl, navigate } = setUp();
 
     await navigate('/landing');
 
@@ -45,6 +36,15 @@ describe(isSignedInGuard.name, () => {
     await expect
       .element(page.getByRole('heading'))
       .toHaveTextContent('Landing');
+  });
+
+  it('redirects to /search if user is is not signed in and first visit', async () => {
+    const { getCurrentUrl, navigate } = setUp();
+
+    await navigate('/meal-plan');
+
+    expect.soft(getCurrentUrl()).toBe('/search');
+    await expect.element(page.getByRole('heading')).toHaveTextContent('Search');
   });
 });
 
