@@ -1,6 +1,7 @@
 import { type Config, type Exercise } from './core.ts';
 
 const files = {
+  isSignedInGuard: 'src/app/user/is-signed-in.guard.ts',
   mealPlanner: 'src/app/meal-planner/meal-planner.ts',
   mealRepository: 'src/app/meal-planner/meal-repository.ts',
   recipeFilter: 'src/app/recipe/recipe-filter.ng.ts',
@@ -133,6 +134,7 @@ const exercises: Exercise[] = [
   {
     id: '601-router-guard',
     name: '601 - Router Guard',
+    implementationFiles: [files.isSignedInGuard],
   },
   {
     id: '801-recipe-preview-testronaut',
