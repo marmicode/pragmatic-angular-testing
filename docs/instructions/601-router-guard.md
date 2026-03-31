@@ -10,6 +10,15 @@ sidebar_label: 601. Router Guard
 pnpm cook start 601-router-guard
 ```
 
+:::info ♻️ TDD option
+
+You can choose to:
+
+- go full-on TDD and implement the tests first then checkout the implementation later,
+- or checkout the implementation first and then implement the tests.
+
+:::
+
 ## 🎯 Goal #1: Allow access if user is signed in
 
 The `isSignedInGuard` is a `CanActivateFn` route guard that controls access to protected routes.
