@@ -25,7 +25,7 @@ describe(isSignedInGuard.name, () => {
       .toHaveTextContent('Meal Plan');
   });
 
-  it('prevents navigation if user is is not signed in and has already navigated', async () => {
+  it('prevents navigation if user is not signed in and has already navigated', async () => {
     const { getCurrentUrl, navigate } = setUp();
 
     await navigate('/landing');
@@ -38,7 +38,7 @@ describe(isSignedInGuard.name, () => {
       .toHaveTextContent('Landing');
   });
 
-  it('redirects to /search if user is is not signed in and first visit', async () => {
+  it('redirects to /search if user is not signed in and first visit', async () => {
     const { getCurrentUrl, navigate } = setUp();
 
     await navigate('/meal-plan');

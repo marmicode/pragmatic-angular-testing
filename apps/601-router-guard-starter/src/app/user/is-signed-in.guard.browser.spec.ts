@@ -15,12 +15,10 @@ describe(isSignedInGuard.name, () => {
   it.todo('🚧 allows access to the route if user is signed in');
 
   it.todo(
-    '🚧 prevents navigation if user is is not signed in and has already navigated',
+    '🚧 prevents navigation if user is not signed in and has already navigated',
   );
 
-  it.todo(
-    '🚧 redirects to /search if user is is not signed in and first visit',
-  );
+  it.todo('🚧 redirects to /search if user is not signed in and first visit');
 });
 
 function setUp() {
