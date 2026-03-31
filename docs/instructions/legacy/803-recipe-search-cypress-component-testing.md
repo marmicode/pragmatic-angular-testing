@@ -18,7 +18,7 @@ pnpm nx component-test --watch
 
 2. Open `src/app/recipe/recipe-search.component.cy.ts`
 
-3. Arrange fake recipe repository with some recipes. _(Cf. [🎁 Tip: Arrange fakes before component is mounted](#-tip-arrange-fakes-before-component-is-mounted))_
+3. Arrange fake recipe repository with some recipes. _(🔗 [🎁 Tip: Arrange fakes before component is mounted](#-tip-arrange-fakes-before-component-is-mounted))_
 
 4. Find all recipe names using `cy.findAllByRole()`.
 
@@ -44,7 +44,7 @@ pnpm nx component-test --watch
 
 2. Click the "ADD" button.
 
-3. Check that the recipe has been added to the meal plan. _(Cf. [🎁 Tip: Accessing a service](#-tip--accessing-a-service))_
+3. Check that the recipe has been added to the meal plan. _(🔗 [🎁 Tip: Accessing a service](#-tip--accessing-a-service))_
 
 ## 🎯 Goal #4: Check that the "ADD" button is disabled when the recipe is already in the meal plan
 
@@ -52,7 +52,7 @@ pnpm nx component-test --watch
 
 While we could simply click the "ADD" button and check that the button is disabled, we will instead check that the button is disabled from the start. The main reason to this is that we want to make sure that the button is disabled based on the meal plan and not just because the button was clicked.
 
-2. Arrange fake meal repository by adding the recipe. _(Cf. [🎁 Tip: Arrange fakes before component is mounted](#-tip-arrange-fakes-before-component-is-mounted))_
+2. Arrange fake meal repository by adding the recipe. _(🔗 [🎁 Tip: Arrange fakes before component is mounted](#-tip-arrange-fakes-before-component-is-mounted))_
 
 3. Check that the "ADD" button is disabled.
 

@@ -47,7 +47,7 @@ const component = mount(Greetings, {
 
 #### 4. Check that the recipe name is shown.
 
-Playwright provides built-in locators similar to Testing Library. Cf. [https://playwright.dev/docs/locators](https://playwright.dev/docs/locators)
+Playwright provides built-in locators similar to Testing Library. 🔗 [https://playwright.dev/docs/locators](https://playwright.dev/docs/locators)
 
 ## 📖 Appendices
 

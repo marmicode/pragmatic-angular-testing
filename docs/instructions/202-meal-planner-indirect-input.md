@@ -45,7 +45,7 @@ pnpm test
 pnpm test
 ```
 
-#### 2. Remove the fake and create & provide the spy instead. _(Cf. [Tip: Create & provide a type-safe spy](./201-meal-planner-indirect-output.md#-tip-create--provide-a-type-safe-spy-with-vitest))_
+#### 2. Remove the fake and create & provide the spy instead. _(🔗 [Tip: Create & provide a type-safe spy](./201-meal-planner-indirect-output.md#-tip-create--provide-a-type-safe-spy-with-vitest))_
 
 #### 3. Use the `setUpMealPlanner()` function instead of `createMealPlanner()` in order to configure the spy before creating the `MealPlanner`.
 

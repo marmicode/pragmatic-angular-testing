@@ -51,8 +51,8 @@ TestBed.overrideComponent(RecipeSearch, {
 
 #### 4. Query DOM and check child components properties.
 
-- Cf. [Query DOM with Vitest Browser Mode](#-tip-how-to-query-the-dom-and-make-assertions-with-vitest-browser-mode)
-- Cf. [Access element properties](#-tip-access-element-properties)
+- 🔗 [Query DOM with Vitest Browser Mode](#-tip-how-to-query-the-dom-and-make-assertions-with-vitest-browser-mode)
+- 🔗 [Access element properties](#-tip-access-element-properties)
 
 :::tip
 Note that `RecipePreview` component host element has a `data-testid="recipe-preview"` attribute that you can query with Testing Library.

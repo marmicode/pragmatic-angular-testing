@@ -36,7 +36,7 @@ You can use a [Spy](#-steps-with-a-spy), a [Fake](#-steps-with-a-fake), or try b
 pnpm test
 ```
 
-#### 2. Implement the fake in `src/app/meal-planner/meal-repository.fake.ts` & provide it _(Cf. [Tip: Provide a fake](#-tip-provide-a-fake))_.
+#### 2. Implement the fake in `src/app/meal-planner/meal-repository.fake.ts` & provide it _(🔗 [Tip: Provide a fake](#-tip-provide-a-fake))_.
 
 #### 3. Add a recipe using `mealPlanner.addRecipe(...)`.
 
@@ -56,7 +56,7 @@ pnpm cook checkout-impl
 pnpm test
 ```
 
-#### 2. Create & provide the spy. _(Cf. [Tip: Create & provide a type-safe spy](#-tip-create--provide-a-type-safe-spy-with-vitest))_
+#### 2. Create & provide the spy. _(🔗 [Tip: Create & provide a type-safe spy](#-tip-create--provide-a-type-safe-spy-with-vitest))_
 
 #### 3. Add a recipe using `mealPlanner.addRecipe(...)`.
 

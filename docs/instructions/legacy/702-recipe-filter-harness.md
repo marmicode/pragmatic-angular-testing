@@ -28,7 +28,7 @@ pnpm test
 
    4. Implement a `setValue(filter: RecipeFilter)` method.
 
-   5. Use `ComponentHarness.locatorFor` to locate any element or component using a harness. (Cf. [use `locatorFor`](#-tip-use-locatorfor))
+   5. Use `ComponentHarness.locatorFor` to locate any element or component using a harness. (🔗 [use `locatorFor`](#-tip-use-locatorfor))
 
 3. Update test:
 

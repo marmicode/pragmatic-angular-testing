@@ -24,7 +24,7 @@ pnpm nx component-test --watch
 cy.findByLabelText('Keywords').type('...');
 ```
 
-4. Spy on the `filterChange` output _(Cf. [🎁 Tip: Spying on component outputs](#-tip--spying-on-component-outputs))_ and check that it was called with the right filter object.
+4. Spy on the `filterChange` output _(🔗 [🎁 Tip: Spying on component outputs](#-tip--spying-on-component-outputs))_ and check that it was called with the right filter object.
 
 ## Appendices
 
@@ -50,7 +50,7 @@ cy.get('@recipeChange').should('be.calledWith', { name: 'Burger' });
 The problem with this approach is that it only works with outputs implemented using `EventEmitter`.
 If the output is implemented differently, like using another `Observable` implementation, this will replace the output property with a spy and break the component instead of subscribing to the observable.
 
-Cf. [related issue https://github.com/cypress-io/cypress/issues/24445](https://github.com/cypress-io/cypress/issues/24445)
+🔗 [related issue https://github.com/cypress-io/cypress/issues/24445](https://github.com/cypress-io/cypress/issues/24445)
 
 #### B. The `createOutputSpy` helper
 

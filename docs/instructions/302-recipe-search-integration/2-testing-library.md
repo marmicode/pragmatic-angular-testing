@@ -51,7 +51,7 @@ await render(RecipeSearch, { providers: [provideHttpClient()] });
 
 #### 4. Query DOM and check names are displayed.
 
-Cf. [Testing Library Queries docs](#-testing-library-queries-docs--or-how-to-choose-the-right-query)
+🔗 [Testing Library Queries docs](#-testing-library-queries-docs--or-how-to-choose-the-right-query)
 
 #### 5. [optional] Checkout the implementation if you've opted for TDD option:
 
@@ -89,11 +89,11 @@ await render(RecipeSearch, {
 });
 ```
 
-Cf. [How to configure `TestBed` before mounting the component with Testing Library](#-tip-how-to-configure-testbed-before-mounting-the-component-with-testing-library)
+🔗 [How to configure `TestBed` before mounting the component with Testing Library](#-tip-how-to-configure-testbed-before-mounting-the-component-with-testing-library)
 
 #### 4. Query DOM and check names are displayed.
 
-Cf. [Testing Library Queries docs](#-testing-library-queries-docs--or-how-to-choose-the-right-query)
+🔗 [Testing Library Queries docs](#-testing-library-queries-docs--or-how-to-choose-the-right-query)
 
 #### 5. [optional] Checkout the implementation if you've opted for TDD option:
 

@@ -51,7 +51,7 @@ TestBed.configureTestingModule({ providers: [provideHttpClient()] });
 
 #### 4. Query DOM and check names are displayed.
 
-Cf. [query DOM with `fixture.debugElement`](#-tip-query-dom-with-fixturedebugelement)
+🔗 [query DOM with `fixture.debugElement`](#-tip-query-dom-with-fixturedebugelement)
 
 #### 5. [optional] Checkout the implementation if you've opted for TDD option:
 
@@ -90,7 +90,7 @@ fake...
 
 #### 4. Query DOM and check names are displayed.
 
-Cf. [query DOM with `fixture.debugElement`](#-tip-query-dom-with-fixturedebugelement)
+🔗 [query DOM with `fixture.debugElement`](#-tip-query-dom-with-fixturedebugelement)
 
 #### 5. [optional] Checkout the implementation if you've opted for TDD option:
 
