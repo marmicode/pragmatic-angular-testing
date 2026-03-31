@@ -36,9 +36,9 @@ There are different ways to achieve this. We can use the `cy.get()` command to f
 
 Instead, we can use the `cy.contains()` command which is more resilient to changes in the DOM but it isn't as precise as `cy.get()`.
 
-One of the most resilient and robust alternatives is using [`@testing-library/cypress`](https://github.com/testing-library/cypress-testing-library) which provides a set of helpful commands _(Cf. https://testing-library.com/docs/queries/about/#priority)_.
+One of the most resilient and robust alternatives is using [`@testing-library/cypress`](https://github.com/testing-library/cypress-testing-library) which provides a set of helpful commands _(🔗 https://testing-library.com/docs/queries/about/#priority)_.
 
-Note that `@testing-library/cypress` is already set up. _Cf. [cypress/support/commands.ts](../cypress/support/commands.ts)._
+Note that `@testing-library/cypress` is already set up. _🔗 [cypress/support/commands.ts](../cypress/support/commands.ts)._
 
 ## Appendices
 

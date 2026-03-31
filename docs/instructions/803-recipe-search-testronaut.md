@@ -74,7 +74,7 @@ class RecipeSearchTestContainerComponent {
 
 #### 2. Click the "ADD" button.
 
-#### 3. Check that the recipe has been added to the meal plan. _(Cf. [🎁 Tip: Notifying test of state changes](#-tip-notifying-test-of-state-changes))_
+#### 3. Check that the recipe has been added to the meal plan. _(🔗 [🎁 Tip: Notifying test of state changes](#-tip-notifying-test-of-state-changes))_
 
 ## 🎯 Goal #4: Check that the "ADD" button is disabled when the recipe is already in the meal plan
 

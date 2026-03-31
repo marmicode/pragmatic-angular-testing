@@ -47,7 +47,7 @@ pnpm test
 
 #### 3. Update existing tests to use `mealPlanner.recipes()` instead of `mealPlanner.getRecipes()`.
 
-#### 4. Implement the `🚧 notifies when recipes change` test using the `watch` utility. _(Cf. [Tip: Watching signals](#-tip-watching-signals))_
+#### 4. Implement the `🚧 notifies when recipes change` test using the `watch` utility. _(🔗 [Tip: Watching signals](#-tip-watching-signals))_
 
 ## 🎯 Goal #2: Test that `canAddRecipe` is reactive
 
@@ -67,7 +67,7 @@ pnpm test
 
 #### 2. Open `src/app/meal-planner/meal-planner.spec.ts`.
 
-#### 3. Implement the `🚧 notifies when recipes change` test inside the `canAddRecipe` describe block using the `watch` utility. _(Cf. [Tip: Watching signals](#-tip-watching-signals))_
+#### 3. Implement the `🚧 notifies when recipes change` test inside the `canAddRecipe` describe block using the `watch` utility. _(🔗 [Tip: Watching signals](#-tip-watching-signals))_
 
 #### 4. [optional] Checkout the implementation if you've opted for TDD option:
 

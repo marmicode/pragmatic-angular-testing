@@ -51,8 +51,8 @@ TestBed.overrideComponent(RecipeSearch, {
 
 #### 4. Query DOM and check child components properties
 
-- Cf. [Query DOM with `fixture.debugElement`](#-tip-query-dom-with-fixturedebugelement)
-- Cf. [Access element properties](#-tip-access-element-properties)
+- 🔗 [Query DOM with `fixture.debugElement`](#-tip-query-dom-with-fixturedebugelement)
+- 🔗 [Access element properties](#-tip-access-element-properties)
 
 #### 5. [optional] Checkout the implementation if you've opted for TDD option:.
 

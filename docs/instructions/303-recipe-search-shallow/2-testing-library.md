@@ -58,8 +58,8 @@ await render(RecipeSearch, {
 
 #### 4. Query DOM and check child components properties.
 
-- Cf. [Testing Library Queries docs](#-testing-library-queries-docs--or-how-to-choose-the-right-query)
-- Cf. [Access element properties](#-tip-access-element-properties)
+- 🔗 [Testing Library Queries docs](#-testing-library-queries-docs--or-how-to-choose-the-right-query)
+- 🔗 [Access element properties](#-tip-access-element-properties)
 
 :::tip
 Note that `RecipePreview` component host element has a `data-testid="recipe-preview"` attribute that you can query with Testing Library.

@@ -51,7 +51,7 @@ TestBed.configureTestingModule({ providers: [provideHttpClient()] });
 
 #### 4. Query DOM and check names are displayed.
 
-Cf. [How to query the DOM and make assertions with Vitest Browser Mode](#-tip-how-to-query-the-dom-and-make-assertions-with-vitest-browser-mode)
+🔗 [How to query the DOM and make assertions with Vitest Browser Mode](#-tip-how-to-query-the-dom-and-make-assertions-with-vitest-browser-mode)
 
 #### 5. [optional] Checkout the implementation if you've opted for TDD option:
 
@@ -91,7 +91,7 @@ fake...
 
 #### 4. Query DOM and check names are displayed.
 
-Cf. [How to query the DOM and make assertions with Vitest Browser Mode](#-tip-how-to-query-the-dom-and-make-assertions-with-vitest-browser-mode)
+🔗 [How to query the DOM and make assertions with Vitest Browser Mode](#-tip-how-to-query-the-dom-and-make-assertions-with-vitest-browser-mode)
 
 #### 5. [optional] Checkout the implementation if you've opted for TDD option:
 
