@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { defer, Observable, of } from 'rxjs';
 import { Recipe } from '../recipe/recipe';
 import { LocalStorage } from '../shared/local-storage';
 
@@ -14,19 +14,16 @@ export interface MealRepositoryDef {
 })
 export class MealRepository implements MealRepositoryDef {
   private _localStorage = inject(LocalStorage);
-  private _meals: Recipe[] = [];
-
-  constructor() {
-    this._meals = this._loadMeals();
-  }
 
   addMeal(meal: Recipe): Observable<void> {
-    this._updateMeals([...this._meals, meal]);
-    return of(undefined);
+    return defer(() => {
+      this._updateMeals([...this._loadMeals(), meal]);
+      return of(undefined);
+    });
   }
 
   getMeals(): Observable<Recipe[]> {
-    return of(this._meals);
+    return defer(() => of(this._loadMeals()));
   }
 
   private _loadMeals(): Recipe[] {
@@ -44,7 +41,6 @@ export class MealRepository implements MealRepositoryDef {
   }
 
   private _updateMeals(meals: Recipe[]) {
-    this._meals = meals;
     this._localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(meals));
   }
 }
