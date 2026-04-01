@@ -67,7 +67,7 @@ pnpm cook checkout-impl
 
 #### 1. Activate the third `it.todo` test.
 
-#### 2. Implement the `setStorageValue` helper in `setUpMealRepository()`. _(🔗 [Tip: Inject `LocalStorage`](#-tip-inject-localstorage))_
+#### 2. Implement the `setStorageValue` helper in `setUpMealRepository()`.
 
 #### 3. Use `setUpMealRepository()` instead of `createMealRepository()` to control instantiation timing. _(🔗 [Tip: Deferred instantiation](#-tip-deferred-instantiation))_
 
