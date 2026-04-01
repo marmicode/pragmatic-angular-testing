@@ -13,6 +13,13 @@ export class MealPlanner {
     return this.recipes().find((r) => recipe.id === r.id) == null;
   }
 
+  /**
+   * @deprecated Use `recipes` signal instead.
+   */
+  getRecipes(): Recipe[] {
+    return this.recipes();
+  }
+
   addRecipe(recipe: Recipe) {
     if (!untracked(() => this.canAddRecipe(recipe))) {
       throw new Error(`Can't add recipe.`);
