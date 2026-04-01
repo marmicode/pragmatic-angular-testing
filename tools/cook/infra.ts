@@ -37,12 +37,7 @@ export class FileSystemAdapter {
   }
 
   removeDir(path: string): void {
-    rmSync(path, {
-      /* This is crucial for Windows users due to file locking which can
-       * cause EBUSY errors. */
-      maxRetries: 5,
-      recursive: true,
-    });
+    rmSync(path, { recursive: true });
   }
 }
 
