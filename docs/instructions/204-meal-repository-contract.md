@@ -10,6 +10,15 @@ sidebar_label: 204. Meal Repository Contract
 pnpm cook start 204-meal-repository-contract
 ```
 
+:::info ♻️ TDD option
+
+You can choose to:
+
+- go full-on TDD and implement the tests first then checkout the implementation later,
+- or checkout the implementation first and then implement the tests.
+
+:::
+
 ## 🎯 Goal: Extract a contract to verify `MealRepositoryFake` behaves similarly to `MealRepository`
 
 The `MealRepository` and `MealRepositoryFake` both implement `MealRepositoryDef`.
@@ -58,7 +67,7 @@ export const verifyMealRepositoryContract = (createMealRepository: () => { mealR
 ### 🎁 Tip: Running the contract against the fake
 
 ```ts
-describe(MealRepositoryFake, () => {
+describe(MealRepositoryFake.name, () => {
   verifyMealRepositoryContract(createMealRepositoryFake);
 
   function createMealRepositoryFake() {
