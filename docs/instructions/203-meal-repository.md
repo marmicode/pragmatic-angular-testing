@@ -88,17 +88,6 @@ await lastValueFrom(mealRepo.addMeal(burger));
 const meals = await lastValueFrom(mealRepo.getMeals());
 ```
 
-### 🎁 Tip: Inject `LocalStorage`
-
-Use `TestBed.inject(LocalStorage)` to interact with the injected `LocalStorage` instance directly in tests:
-
-```ts
-import { LocalStorage } from '../shared/local-storage';
-
-const storage = TestBed.inject(LocalStorage);
-storage.setItem('meals', 'invalid-value');
-```
-
 ### 🎁 Tip: Deferred instantiation
 
 When you need to set up state **before** the service is constructed _(e.g. pre-populating `LocalStorage`)_, use `setUpMealRepository()` instead of `createMealRepository()` and call `getMealRepo()` **after** setting up the state:
