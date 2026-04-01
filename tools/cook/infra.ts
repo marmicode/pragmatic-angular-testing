@@ -1,6 +1,7 @@
 import { execSync } from 'node:child_process';
 import inquirer from 'enquirer';
-import { readdirSync, readFileSync, rmSync, writeFileSync } from 'fs';
+import { readdirSync, readFileSync, writeFileSync } from 'fs';
+import { rimrafSync } from 'rimraf';
 const { prompt } = inquirer;
 
 export class CommandRunner {
@@ -37,12 +38,7 @@ export class FileSystemAdapter {
   }
 
   removeDir(path: string): void {
-    rmSync(path, {
-      /* This is crucial for Windows users due to file locking which can
-       * cause EBUSY errors. */
-      maxRetries: 5,
-      recursive: true,
-    });
+    rimrafSync(path);
   }
 }
 
