@@ -38,11 +38,7 @@ export class FileSystemAdapter {
   }
 
   removeDir(path: string): void {
-<<<<<<< Updated upstream
-    rmSync(path, { recursive: true });
-=======
     rimrafSync(path);
->>>>>>> Stashed changes
   }
 }
 
