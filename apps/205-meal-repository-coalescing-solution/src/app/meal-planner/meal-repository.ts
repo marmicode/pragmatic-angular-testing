@@ -1,5 +1,6 @@
 import { inject, Injectable } from '@angular/core';
-import { defer, Observable, of } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { auditTime, BehaviorSubject, defer, Observable, of } from 'rxjs';
 import { Recipe } from '../recipe/recipe';
 import { LocalStorage } from '../shared/local-storage';
 
@@ -14,16 +15,23 @@ export interface MealRepositoryDef {
 })
 export class MealRepository implements MealRepositoryDef {
   private _localStorage = inject(LocalStorage);
+  private _meals$ = new BehaviorSubject<Recipe[]>(this._loadMeals());
+
+  constructor() {
+    this._meals$
+      .pipe(auditTime(300), takeUntilDestroyed())
+      .subscribe((meals) => this._updateMeals(meals));
+  }
 
   addMeal(meal: Recipe): Observable<void> {
     return defer(() => {
-      this._updateMeals([...this._loadMeals(), meal]);
+      this._meals$.next([...this._meals$.value, meal]);
       return of(undefined);
     });
   }
 
   getMeals(): Observable<Recipe[]> {
-    return defer(() => of(this._loadMeals()));
+    return defer(() => of(this._meals$.value));
   }
 
   private _loadMeals(): Recipe[] {

@@ -1,13 +1,27 @@
-import { MealRepository } from './meal-repository';
 import { TestBed } from '@angular/core/testing';
 import { lastValueFrom } from 'rxjs';
 import { LocalStorage } from '../shared/local-storage';
 import { provideLocalStorageFake } from '../shared/local-storage.fake';
-import { verifyMealRepositoryContract } from './meal-repository.contract';
 import { recipeMother } from '../testing/recipe.mother';
+import { MealRepository } from './meal-repository';
+import { verifyMealRepositoryContract } from './meal-repository.contract';
 
 describe(MealRepository.name, () => {
   verifyMealRepositoryContract(createMealRepository);
+
+  it.todo(
+    '🚧 coalesces multiple addMeal calls and does not update the local storage before 300ms',
+    async () => {
+      throw new Error('🚧 Work in progress!');
+    },
+  );
+
+  it.todo(
+    '🚧 coalesces multiple addMeal calls and updates the local storage after 300ms',
+    async () => {
+      throw new Error('🚧 Work in progress!');
+    },
+  );
 
   it('returns empty array when storage value is invalid', async () => {
     const { getMealRepo, setStorageValue } = setUpMealRepository();
@@ -36,12 +50,28 @@ describe(MealRepository.name, () => {
     const burger = recipeMother.withBasicInfo('Burger').build();
     const salad = recipeMother.withBasicInfo('Salad').build();
 
+    const localStorage = TestBed.inject(LocalStorage);
+    const localStorageKey = 'meals';
+
     return {
       burger,
       salad,
       getMealRepo: () => TestBed.inject(MealRepository),
-      setStorageValue: (value: string) =>
-        TestBed.inject(LocalStorage).setItem('meals', value),
+      getParsedStorageValue: () => {
+        const raw = localStorage.getItem(localStorageKey);
+        return raw != null ? JSON.parse(raw) : null;
+      },
+      setStorageValue: (value: string) => {
+        localStorage.setItem(localStorageKey, value);
+      },
     };
+  }
+
+  function setUpFakeTimers() {
+    vi.useFakeTimers();
+
+    onTestFinished(() => {
+      vi.useRealTimers();
+    });
   }
 });
