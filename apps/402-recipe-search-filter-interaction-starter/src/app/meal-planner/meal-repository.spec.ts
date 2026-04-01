@@ -40,9 +40,8 @@ describe(MealRepository.name, () => {
       burger,
       salad,
       getMealRepo: () => TestBed.inject(MealRepository),
-      setStorageValue: (value: string) => {
-        TestBed.inject(LocalStorage).setItem('meals', value);
-      },
+      setStorageValue: (value: string) =>
+        TestBed.inject(LocalStorage).setItem('meals', value),
     };
   }
 });
