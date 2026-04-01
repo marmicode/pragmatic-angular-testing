@@ -1,6 +1,7 @@
 import { execSync } from 'node:child_process';
 import inquirer from 'enquirer';
-import { readdirSync, readFileSync, rmSync, writeFileSync } from 'fs';
+import { readdirSync, readFileSync, writeFileSync } from 'fs';
+import { rimrafSync } from 'rimraf';
 const { prompt } = inquirer;
 
 export class CommandRunner {
@@ -37,7 +38,11 @@ export class FileSystemAdapter {
   }
 
   removeDir(path: string): void {
+<<<<<<< Updated upstream
     rmSync(path, { recursive: true });
+=======
+    rimrafSync(path);
+>>>>>>> Stashed changes
   }
 }
 
