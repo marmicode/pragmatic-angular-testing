@@ -41,7 +41,6 @@ export class MealRepository implements MealRepositoryDef {
   }
 
   private _updateMeals(meals: Recipe[]) {
-    this._meals = meals;
     this._localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(meals));
   }
 }
