@@ -48,6 +48,11 @@ const exercises: Exercise[] = [
     name: '204 - Meal Repository Contract',
   },
   {
+    id: '205-meal-repository-coalescing',
+    name: '205 - Meal Repository Coalescing',
+    implementationFiles: [files.mealRepository],
+  },
+  {
     id: '301-recipe-search-isolated',
     name: '301 - Recipe Search Isolated',
     implementationFiles: [files.recipeSearch],
