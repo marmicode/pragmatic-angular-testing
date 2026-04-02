@@ -9,7 +9,7 @@ import {
   writeFileSync,
 } from 'fs';
 import { execSync } from 'node:child_process';
-import { basename, join } from 'node:path';
+import { basename, join, relative } from 'node:path';
 
 const { prompt } = inquirer;
 
@@ -53,10 +53,12 @@ export class FileSystemAdapter {
     const targetPath = join(TRASH_PATH, `${basename(path)}-${Date.now()}`);
     renameSync(path, targetPath);
     try {
-      rmSync(targetPath, { maxRetries: 5, retryDelay: 100, recursive: true });
-    } catch {
+      rmSync(targetPath, { maxRetries: 5, recursive: true });
+    } catch (error: unknown) {
+      const relativeTargetPath = relative(workspaceRoot, targetPath);
+      const reason = error instanceof Error ? error.message : error;
       console.warn(
-        `⚠️ Failed to remove ${targetPath}. You may need to remove it manually.`,
+        `⚠️ Failed to remove ${relativeTargetPath}. You may need to remove it manually. Reason: ${reason}`,
       );
     }
   }
