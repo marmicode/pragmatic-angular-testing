@@ -142,6 +142,10 @@ const exercises: Exercise[] = [
     implementationFiles: [files.isSignedInGuard],
   },
   {
+    id: '701-recipe-search-e2e',
+    name: '701 - Recipe Search E2E',
+  },
+  {
     id: '801-recipe-preview-testronaut',
     name: '801 - Recipe Preview with Testronaut',
   },

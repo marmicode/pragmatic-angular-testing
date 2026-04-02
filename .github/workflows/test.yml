@@ -74,7 +74,27 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: 🎭 Playwright Report
+          name: 🎭 Playwright Report - Testronaut
+          path: dist/.playwright
+          include-hidden-files: true
+          retention-days: 7
+
+  e2e:
+    name: 🎭 E2E
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+      - name: Setup
+        uses: ./.github/actions/setup
+      - name: Playwright browsers install
+        run: pnpm playwright install --with-deps
+      - run: pnpm nx affected -t e2e --parallel=1 --pass-with-no-tests
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: 🎭 Playwright Report - E2E
           path: dist/.playwright
           include-hidden-files: true
           retention-days: 7
@@ -90,6 +110,7 @@ jobs:
       - sanity-check
       - test
       - testronaut
+      - e2e
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

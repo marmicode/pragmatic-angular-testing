@@ -4,7 +4,7 @@ module.exports = {
   displayName: 'whiskmate',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup-jest.ts'],
-  testPathIgnorePatterns: ['(browser|vitest)\\.spec\\.ts$'],
+  testPathIgnorePatterns: ['<rootDir>/e2e/', '(browser|vitest)\\.spec\\.ts$'],
   coverageDirectory: '../../coverage/apps/whiskmate',
   transform: {
     '^.+\\.m?(t|j)sx?$': swcAngularJestTransformer(),

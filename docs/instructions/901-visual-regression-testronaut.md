@@ -7,7 +7,7 @@ sidebar_label: 901. Testronaut - Visual Regression
 ## Setup
 
 ```sh
-pnpm cook start 901-testronaut-visual-regression
+pnpm cook start 901-visual-regression-testronaut
 ```
 
 ## 🎯 Goal #1: Add a visual regression screenshot to `RecipePreview`

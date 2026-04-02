@@ -1,0 +1,103 @@
+import { TestBed } from '@angular/core/testing';
+import { render, screen, waitFor } from '@testing-library/angular';
+import userEvent from '@testing-library/user-event';
+import { MealPlanner } from '../meal-planner/meal-planner';
+import { provideMealRepositoryFake } from '../meal-planner/meal-repository.fake';
+import { recipeMother } from '../testing/recipe.mother';
+import {
+  provideRecipeRepositoryFake,
+  RecipeRepositoryFake,
+} from './recipe-repository.fake';
+import { RecipeSearch } from './recipe-search.ng';
+
+describe(RecipeSearch.name, () => {
+  it('searches recipes without filtering', async () => {
+    const { getRecipeNameEls } = await mountRecipeSearch();
+
+    expect(getRecipeNameEls()).toHaveLength(2);
+    expect(getRecipeNameEls()[0]).toHaveTextContent('Burger');
+    expect(getRecipeNameEls()[1]).toHaveTextContent('Salad');
+  });
+
+  it('filters recipes by keywords', async () => {
+    const { getRecipeNameEls, updateFilter } = await mountRecipeSearch();
+
+    await updateFilter({
+      keywords: 'Burg',
+    });
+
+    /* Using `waitFor` from Testing Library to be compatible with both Jest and Vitest.
+     * On Vitest, one can poll using `expect.element` or `expect.poll` or `vi.waitFor`. */
+    await waitFor(() => {
+      const recipeNameEls = getRecipeNameEls();
+      expect(recipeNameEls).toHaveLength(1);
+      expect(recipeNameEls[0]).toHaveTextContent('Burger');
+    });
+  });
+
+  it('adds recipe to meal planner', async () => {
+    const { getFirstAddButton, getMealPlannerRecipeNames } =
+      await mountRecipeSearch();
+
+    await userEvent.click(getFirstAddButton());
+
+    expect(getMealPlannerRecipeNames()).toEqual(['Burger']);
+  });
+
+  it("disables add button if recipe can't be added", async () => {
+    const { getFirstAddButton } =
+      await mountRecipeSearchWithBurgerInMealPlanner();
+
+    /* Can't add burger because there is already a burger with the same id. */
+    expect(getFirstAddButton()).toBeDisabled();
+  });
+
+  async function mountRecipeSearchWithBurgerInMealPlanner() {
+    const { mealPlanner, whenStable, ...utils } = await mountRecipeSearch();
+
+    await mealPlanner.addRecipe(recipeMother.withBasicInfo('Burger').build());
+
+    await whenStable();
+
+    return utils;
+  }
+
+  async function mountRecipeSearch() {
+    vi.useFakeTimers().setTimerTickMode('nextTimerAsync');
+    onTestFinished(() => {
+      vi.useRealTimers();
+    });
+
+    const { fixture } = await render(RecipeSearch, {
+      providers: [provideMealRepositoryFake(), provideRecipeRepositoryFake()],
+      configureTestBed(testBed) {
+        testBed
+          .inject(RecipeRepositoryFake)
+          .setRecipes([
+            recipeMother.withBasicInfo('Burger').build(),
+            recipeMother.withBasicInfo('Salad').build(),
+          ]);
+      },
+    });
+
+    const mealPlanner = TestBed.inject(MealPlanner);
+
+    await fixture.whenStable();
+
+    return {
+      mealPlanner,
+      getMealPlannerRecipeNames: () =>
+        mealPlanner.recipes().map((recipe) => recipe.name),
+      getFirstAddButton: () =>
+        screen.getAllByRole<HTMLButtonElement>('button', {
+          name: 'ADD',
+        })[0],
+      getRecipeNameEls: () => screen.queryAllByRole('heading'),
+      updateFilter: async ({ keywords }: { keywords: string }) => {
+        await userEvent.type(screen.getByLabelText('Keywords'), keywords);
+        await fixture.whenStable();
+      },
+      whenStable: () => fixture.whenStable(),
+    };
+  }
+});
