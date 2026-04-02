@@ -143,19 +143,19 @@ const exercises: Exercise[] = [
   },
   {
     id: '801-recipe-preview-testronaut',
-    name: '801 - Recipe Preview Playwright Component Testing',
+    name: '801 - Recipe Preview with Testronaut',
   },
   {
     id: '802-recipe-filter-testronaut',
-    name: '802 - Recipe Filter Playwright Component Testing',
+    name: '802 - Recipe Filter with Testronaut',
   },
   {
     id: '803-recipe-search-testronaut',
-    name: '803 - Recipe Search Playwright Component Testing',
+    name: '803 - Recipe Search with Testronaut',
   },
   {
-    id: '901-testronaut-visual-regression',
-    name: '901 - Testronaut Visual Regression Testing',
+    id: '901-visual-regression-testronaut',
+    name: '901 - Visual Regression with Testronaut',
   },
 ];
 
