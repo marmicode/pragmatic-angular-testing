@@ -74,7 +74,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: 🎭 Playwright Report
+          name: 🎭 Playwright Report - Testronaut
           path: dist/.playwright
           include-hidden-files: true
           retention-days: 7
@@ -94,7 +94,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: 🎭 Playwright Report
+          name: 🎭 Playwright Report - E2E
           path: dist/.playwright
           include-hidden-files: true
           retention-days: 7
