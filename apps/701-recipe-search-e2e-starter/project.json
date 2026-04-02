@@ -1,8 +1,8 @@
 {
-  "name": "701-e2e-search-recipes-solution",
+  "name": "701-recipe-search-e2e-starter",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "sourceRoot": "apps/701-e2e-search-recipes-solution/src",
+  "sourceRoot": "apps/701-recipe-search-e2e-starter/src",
   "prefix": "wm",
   "tags": [],
   "targets": {
