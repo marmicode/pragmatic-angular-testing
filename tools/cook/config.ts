@@ -154,8 +154,8 @@ const exercises: Exercise[] = [
     name: '803 - Recipe Search Playwright Component Testing',
   },
   {
-    id: '804-playwright-visual-regression-testing',
-    name: '804 - Playwright Visual Regression Testing',
+    id: '901-testronaut-visual-regression',
+    name: '901 - Testronaut Visual Regression Testing',
   },
 ];
 
