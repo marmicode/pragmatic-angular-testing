@@ -30,7 +30,7 @@ Let's test that `RecipePreview` is showing the recipe name properly.
 #### 1. Run Playwright component tests:
 
 ```sh
-pnpm test-ui --ui
+pnpm testronaut --ui
 ```
 
 #### 2. Open `src/app/recipe/recipe-preview.pw.ts`.
