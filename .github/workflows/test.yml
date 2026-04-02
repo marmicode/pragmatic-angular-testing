@@ -110,6 +110,7 @@ jobs:
       - sanity-check
       - test
       - testronaut
+      - e2e
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
