@@ -1,6 +1,16 @@
-import { execSync } from 'node:child_process';
+import { workspaceRoot } from '@nx/devkit';
 import inquirer from 'enquirer';
-import { readdirSync, readFileSync, rmSync, writeFileSync } from 'fs';
+import {
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  renameSync,
+  rmSync,
+  writeFileSync,
+} from 'fs';
+import { execSync } from 'node:child_process';
+import { basename, join } from 'node:path';
+
 const { prompt } = inquirer;
 
 export class CommandRunner {
@@ -18,6 +28,8 @@ export class CommandRunner {
     });
   }
 }
+
+export const TRASH_PATH = join(workspaceRoot, 'tmp', 'trash');
 
 export class FileSystemAdapter {
   readFile(path: string): string {
@@ -37,12 +49,16 @@ export class FileSystemAdapter {
   }
 
   removeDir(path: string): void {
-    rmSync(path, {
-      /* This is crucial for Windows users due to file locking which can
-       * cause EBUSY errors. */
-      maxRetries: 5,
-      recursive: true,
-    });
+    mkdirSync(TRASH_PATH, { recursive: true });
+    const targetPath = join(TRASH_PATH, `${basename(path)}-${Date.now()}`);
+    renameSync(path, targetPath);
+    try {
+      rmSync(targetPath, { maxRetries: 5, retryDelay: 100, recursive: true });
+    } catch {
+      console.warn(
+        `⚠️ Failed to remove ${targetPath}. You may need to remove it manually.`,
+      );
+    }
   }
 }
 
