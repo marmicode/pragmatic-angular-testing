@@ -28,7 +28,7 @@ Check that `RecipeFilter` triggers the `filterChange` output with the right valu
 #### 1. Run Playwright component tesets:
 
 ```sh
-pnpm test-ui --ui
+pnpm testronaut --ui
 ```
 
 #### 2. Open `src/app/recipe/recipe-filter.pw.ts`.

@@ -28,7 +28,7 @@ You can choose to:
 #### 1. Run tests:
 
 ```sh
-pnpm test-ui --ui
+pnpm testronaut --ui
 ```
 
 #### 2. Open `src/app/recipe/recipe-search.pw.ts`
