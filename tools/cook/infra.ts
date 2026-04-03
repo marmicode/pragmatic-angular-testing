@@ -1,12 +1,12 @@
-import { execSync } from 'node:child_process';
-import { readdirSync, rmSync } from 'node:fs';
-import { relative } from 'node:path';
-
 import inquirer from 'enquirer';
 import { readFileSync, writeFileSync } from 'fs';
+import { execSync } from 'node:child_process';
+import { mkdirSync, readdirSync, renameSync, rmSync } from 'node:fs';
+import { basename, join, relative } from 'node:path';
 
 const { prompt } = inquirer;
 
+const TRASH_PATH = join(process.cwd(), 'tmp', 'trash');
 export class CommandRunner {
   executeCommand(
     command: string,
@@ -40,15 +40,29 @@ export class FileSystemAdapter {
     return readdirSync(path);
   }
 
+  /**
+   * Windows antiviruses can be a pain (e.g. EBUSY errors).
+   * This method will try to remove the folder multiple times,
+   * then if it fails, it will try to move the folder to tmp/trash,
+   * and finally if that fails, it will warn the user that they may need to remove it manually.
+   *
+   * Note that I've tried to use rimraf and its backoff but that wasn't enough.
+   */
   removeDir(path: string): void {
     try {
-      rmSync(path, { maxRetries: 5, retryDelay: 1_000, recursive: true });
-    } catch (error: unknown) {
-      const relativeTargetPath = relative(process.cwd(), path);
-      const reason = error instanceof Error ? error.message : error;
-      console.warn(
-        `⚠️ Failed to remove ${relativeTargetPath}. You may need to remove it manually. Reason: ${reason}`,
-      );
+      rmSync(path, { maxRetries: 10, recursive: true });
+    } catch {
+      try {
+        mkdirSync(TRASH_PATH, { recursive: true });
+        const targetPath = join(TRASH_PATH, `${basename(path)}-${Date.now()}`);
+        renameSync(path, targetPath);
+      } catch (error: unknown) {
+        const relativeTargetPath = relative(process.cwd(), path);
+        const reason = error instanceof Error ? error.message : error;
+        console.warn(
+          `⚠️ Failed to remove ${relativeTargetPath}. You may need to remove it manually. Reason: ${reason}`,
+        );
+      }
     }
   }
 }
