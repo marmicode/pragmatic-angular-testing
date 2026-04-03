@@ -1,15 +1,9 @@
-import { workspaceRoot } from '@nx/devkit';
-import inquirer from 'enquirer';
-import {
-  mkdirSync,
-  readdirSync,
-  readFileSync,
-  renameSync,
-  rmSync,
-  writeFileSync,
-} from 'fs';
 import { execSync } from 'node:child_process';
-import { basename, join, relative } from 'node:path';
+import { readdirSync, rmSync } from 'node:fs';
+import { relative } from 'node:path';
+
+import inquirer from 'enquirer';
+import { readFileSync, writeFileSync } from 'fs';
 
 const { prompt } = inquirer;
 
@@ -29,8 +23,6 @@ export class CommandRunner {
   }
 }
 
-export const TRASH_PATH = join(workspaceRoot, 'tmp', 'trash');
-
 export class FileSystemAdapter {
   readFile(path: string): string {
     return readFileSync(path, {
@@ -49,18 +41,7 @@ export class FileSystemAdapter {
   }
 
   removeDir(path: string): void {
-    mkdirSync(TRASH_PATH, { recursive: true });
-    const targetPath = join(TRASH_PATH, `${basename(path)}-${Date.now()}`);
-    renameSync(path, targetPath);
-    try {
-      rmSync(targetPath, { maxRetries: 5, recursive: true });
-    } catch (error: unknown) {
-      const relativeTargetPath = relative(workspaceRoot, targetPath);
-      const reason = error instanceof Error ? error.message : error;
-      console.warn(
-        `⚠️ Failed to remove ${relativeTargetPath}. You may need to remove it manually. Reason: ${reason}`,
-      );
-    }
+    rmSync(path, { maxRetries: 5, recursive: true });
   }
 }
 
