@@ -41,7 +41,15 @@ export class FileSystemAdapter {
   }
 
   removeDir(path: string): void {
-    rmSync(path, { maxRetries: 5, recursive: true });
+    try {
+      rmSync(path, { maxRetries: 5, retryDelay: 1_000, recursive: true });
+    } catch (error: unknown) {
+      const relativeTargetPath = relative(process.cwd(), path);
+      const reason = error instanceof Error ? error.message : error;
+      console.warn(
+        `⚠️ Failed to remove ${relativeTargetPath}. You may need to remove it manually. Reason: ${reason}`,
+      );
+    }
   }
 }
 
