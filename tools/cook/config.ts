@@ -3,6 +3,7 @@ import { type Config, type Exercise } from './core.ts';
 const files = {
   isSignedInGuard: 'src/app/user/is-signed-in.guard.ts',
   mealPlanner: 'src/app/meal-planner/meal-planner.ts',
+  mealPlannerRecipeAddButton: 'src/app/meal-planner/recipe-add-button.ng.ts',
   mealRepository: 'src/app/meal-planner/meal-repository.ts',
   recipeFilter: 'src/app/recipe/recipe-filter.ng.ts',
   recipeFilterVitestTest: 'src/app/recipe/recipe-filter.vitest.spec.ts',
@@ -112,7 +113,7 @@ const exercises: Exercise[] = [
   {
     id: '403-recipe-search-add-button',
     name: '403 - Recipe Search Add Button',
-    implementationFiles: [files.recipeSearch],
+    implementationFiles: [files.mealPlannerRecipeAddButton, files.recipeSearch],
   },
   {
     id: '404-recipe-filter-material',
