@@ -68,3 +68,5 @@ __screenshots__
 /playwright-report
 /test-results
 .angular
+
+.nx/migrate-runs
