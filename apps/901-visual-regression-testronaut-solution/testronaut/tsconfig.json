@@ -2,12 +2,11 @@
   "extends": "../tsconfig.app.json",
   "compilerOptions": {
     "outDir": "../dist/out-tsc",
-    "types": []
+    "types": [],
+    "ignoreDeprecations": "6.0"
   },
   "files": ["main.ts"],
-  "include": [
-    "**/*.ts"
-  ],
+  "include": ["**/*.ts"],
   "angularCompilerOptions": {
     "extendedDiagnostics": {
       "checks": {
