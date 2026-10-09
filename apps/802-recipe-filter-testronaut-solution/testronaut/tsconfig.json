@@ -5,5 +5,15 @@
     "types": []
   },
   "files": ["main.ts"],
-  "include": ["**/*.ts"]
+  "include": [
+    "**/*.ts"
+  ],
+  "angularCompilerOptions": {
+    "extendedDiagnostics": {
+      "checks": {
+        "nullishCoalescingNotNullable": "suppress",
+        "optionalChainNotNullable": "suppress"
+      }
+    }
+  }
 }
