@@ -28,6 +28,10 @@
       "plugin": "@nx/vite/plugin",
       "options": {},
       "exclude": ["vitest.config.mts"]
+    },
+    {
+      "plugin": "@nx/vitest",
+      "exclude": ["vitest.config.mts"]
     }
   ],
   "generators": {
