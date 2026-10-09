@@ -161,5 +161,6 @@
       "!{projectRoot}/eslint.config.mjs"
     ]
   },
-  "nxCloudId": "690640bab43dd482385f6d97"
+  "nxCloudId": "690640bab43dd482385f6d97",
+  "analytics": false
 }
