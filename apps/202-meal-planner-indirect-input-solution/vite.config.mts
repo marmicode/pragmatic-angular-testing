@@ -4,10 +4,10 @@ import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import { sep } from 'node:path';
 import { join } from 'node:path/posix';
 
-const projectName = __dirname.split(sep).pop() ?? 'whiskmate';
+const projectName = import.meta.dirname.split(sep).pop() ?? 'whiskmate';
 
 export default defineConfig({
-  root: __dirname,
+  root: import.meta.dirname,
   cacheDir: join('../../node_modules/.vite/tests', projectName),
   plugins: [applyAnalogWorkaround(analog({ jit: false })), nxViteTsPaths()],
 });

@@ -68,3 +68,12 @@ __screenshots__
 /playwright-report
 /test-results
 .angular
+
+.nx/migrate-runs
+
+.claude/worktrees
+
+.claude/settings.local.json
+
+.nx/polygraph
+.nx/self-healing

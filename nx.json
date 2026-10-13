@@ -28,6 +28,10 @@
       "plugin": "@nx/vite/plugin",
       "options": {},
       "exclude": ["vitest.config.mts"]
+    },
+    {
+      "plugin": "@nx/vitest",
+      "exclude": ["vitest.config.mts"]
     }
   ],
   "generators": {
@@ -142,8 +146,10 @@
     "@nx/eslint:lint": {
       "inputs": [
         "default",
+        "^default",
         "{workspaceRoot}/.eslintrc.json",
-        "{workspaceRoot}/eslint.config.mjs"
+        "{workspaceRoot}/eslint.config.mjs",
+        "{workspaceRoot}/tools/eslint-rules/**/*"
       ],
       "cache": true
     }
@@ -161,5 +167,6 @@
       "!{projectRoot}/eslint.config.mjs"
     ]
   },
-  "nxCloudId": "690640bab43dd482385f6d97"
+  "nxCloudId": "690640bab43dd482385f6d97",
+  "analytics": false
 }

@@ -16,7 +16,9 @@ export default defineConfig(
     webServer: {
       command: `pnpm exec nx serve ${projectName}`,
       url: baseURL,
-      reuseExistingServer: true,
+      /* On CI, let Playwright start the server itself, otherwise Nx infers
+       * a continuous `serve` dependency per app and they all fight for the same port. */
+      reuseExistingServer: !process.env['CI'],
       cwd: workspaceRoot,
     },
     expect: { toHaveScreenshot: { maxDiffPixelRatio: 0.01 } },
