@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  '@docusaurus/bundler>webpack': 5.101.3
+  '@docusaurus/core>webpack': 5.101.3
+  '@docusaurus/types>webpack': 5.101.3
+
 importers:
 
   .:
@@ -14872,24 +14877,24 @@ snapshots:
       '@docusaurus/logger': 3.8.1
       '@docusaurus/types': 3.8.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
       '@docusaurus/utils': 3.8.1(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)(react-dom@19.1.1(react@19.1.1))(react@19.1.1)
-      babel-loader: 9.2.1(@babel/core@7.29.7)(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29))
+      babel-loader: 9.2.1(@babel/core@7.29.7)(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2))
       clean-css: 5.3.3
-      copy-webpack-plugin: 11.0.0(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29))
-      css-loader: 6.11.0(@rspack/core@1.6.8(@swc/helpers@0.5.19))(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29))
-      css-minimizer-webpack-plugin: 5.0.1(clean-css@5.3.3)(esbuild@0.28.2)(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29))
+      copy-webpack-plugin: 11.0.0(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2))
+      css-loader: 6.11.0(@rspack/core@1.6.8(@swc/helpers@0.5.19))(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2))
+      css-minimizer-webpack-plugin: 5.0.1(clean-css@5.3.3)(esbuild@0.28.2)(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2))
       cssnano: 6.1.2(postcss@8.5.29)
-      file-loader: 6.2.0(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29))
+      file-loader: 6.2.0(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2))
       html-minifier-terser: 7.2.0
-      mini-css-extract-plugin: 2.10.2(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29))
-      null-loader: 4.0.1(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29))
+      mini-css-extract-plugin: 2.10.2(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2))
+      null-loader: 4.0.1(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2))
       postcss: 8.5.29
-      postcss-loader: 7.3.4(postcss@8.5.29)(typescript@5.6.3)(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29))
+      postcss-loader: 7.3.4(postcss@8.5.29)(typescript@5.6.3)(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2))
       postcss-preset-env: 10.4.0(postcss@8.5.29)
-      terser-webpack-plugin: 5.3.14(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29))
+      terser-webpack-plugin: 5.3.14(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2))
       tslib: 2.8.1
-      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.111.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)(postcss@8.5.29)))(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29))
-      webpack: 5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)
-      webpackbar: 6.0.1(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29))
+      url-loader: 4.1.1(file-loader@6.2.0(webpack@5.111.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)(postcss@8.5.29)))(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2))
+      webpack: 5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)
+      webpackbar: 6.0.1(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2))
     transitivePeerDependencies:
       - '@minify-html/node'
       - '@napi-rs/image'
@@ -19763,12 +19768,12 @@ snapshots:
       '@rspack/core': 1.6.8(@swc/helpers@0.5.19)
       webpack: 5.111.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)(postcss@8.5.28)
 
-  babel-loader@9.2.1(@babel/core@7.29.7)(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)):
+  babel-loader@9.2.1(@babel/core@7.29.7)(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)):
     dependencies:
       '@babel/core': 7.29.7
       find-cache-dir: 4.0.0
       schema-utils: 4.3.3
-      webpack: 5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)
+      webpack: 5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)
 
   babel-plugin-const-enum@1.2.0(@babel/core@7.29.7):
     dependencies:
@@ -20405,7 +20410,7 @@ snapshots:
 
   copy-text-to-clipboard@3.2.2: {}
 
-  copy-webpack-plugin@11.0.0(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)):
+  copy-webpack-plugin@11.0.0(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)):
     dependencies:
       fast-glob: 3.3.3
       glob-parent: 6.0.2
@@ -20413,7 +20418,7 @@ snapshots:
       normalize-path: 3.0.0
       schema-utils: 4.3.3
       serialize-javascript: 6.0.2
-      webpack: 5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)
+      webpack: 5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)
 
   copy-webpack-plugin@14.0.0(webpack@5.111.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)(postcss@8.5.28)):
     dependencies:
@@ -20500,7 +20505,7 @@ snapshots:
       postcss-selector-parser: 7.1.0
       postcss-value-parser: 4.2.0
 
-  css-loader@6.11.0(@rspack/core@1.6.8(@swc/helpers@0.5.19))(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)):
+  css-loader@6.11.0(@rspack/core@1.6.8(@swc/helpers@0.5.19))(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)):
     dependencies:
       icss-utils: 5.1.0(postcss@8.5.29)
       postcss: 8.5.29
@@ -20512,7 +20517,7 @@ snapshots:
       semver: 7.8.5
     optionalDependencies:
       '@rspack/core': 1.6.8(@swc/helpers@0.5.19)
-      webpack: 5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)
+      webpack: 5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)
 
   css-loader@7.1.5(@rspack/core@1.6.8(@swc/helpers@0.5.19))(webpack@5.111.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)(postcss@8.5.28)):
     dependencies:
@@ -20528,7 +20533,7 @@ snapshots:
       '@rspack/core': 1.6.8(@swc/helpers@0.5.19)
       webpack: 5.111.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)(postcss@8.5.28)
 
-  css-minimizer-webpack-plugin@5.0.1(clean-css@5.3.3)(esbuild@0.28.2)(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)):
+  css-minimizer-webpack-plugin@5.0.1(clean-css@5.3.3)(esbuild@0.28.2)(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)):
     dependencies:
       '@jridgewell/trace-mapping': 0.3.31
       cssnano: 6.1.2(postcss@8.5.29)
@@ -20536,7 +20541,7 @@ snapshots:
       postcss: 8.5.29
       schema-utils: 4.3.3
       serialize-javascript: 6.0.2
-      webpack: 5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)
+      webpack: 5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)
     optionalDependencies:
       clean-css: 5.3.3
       esbuild: 0.28.2
@@ -21393,6 +21398,12 @@ snapshots:
   file-entry-cache@8.0.0:
     dependencies:
       flat-cache: 4.0.1
+
+  file-loader@6.2.0(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)):
+    dependencies:
+      loader-utils: 2.0.4
+      schema-utils: 3.3.0
+      webpack: 5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)
 
   file-loader@6.2.0(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)):
     dependencies:
@@ -23956,11 +23967,11 @@ snapshots:
 
   min-indent@1.0.1: {}
 
-  mini-css-extract-plugin@2.10.2(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)):
+  mini-css-extract-plugin@2.10.2(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)):
     dependencies:
       schema-utils: 4.3.3
       tapable: 2.3.3
-      webpack: 5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)
+      webpack: 5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)
 
   mini-css-extract-plugin@2.10.2(webpack@5.111.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)(postcss@8.5.28)):
     dependencies:
@@ -24176,11 +24187,11 @@ snapshots:
     dependencies:
       boolbase: 2.0.0
 
-  null-loader@4.0.1(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)):
+  null-loader@4.0.1(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)):
     dependencies:
       loader-utils: 2.0.4
       schema-utils: 3.3.0
-      webpack: 5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)
+      webpack: 5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)
 
   nwsapi@2.2.22: {}
 
@@ -24829,13 +24840,13 @@ snapshots:
       '@csstools/utilities': 2.0.0(postcss@8.5.29)
       postcss: 8.5.29
 
-  postcss-loader@7.3.4(postcss@8.5.29)(typescript@5.6.3)(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)):
+  postcss-loader@7.3.4(postcss@8.5.29)(typescript@5.6.3)(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)):
     dependencies:
       cosmiconfig: 8.3.6(typescript@5.6.3)
       jiti: 1.21.0
       postcss: 8.5.29
       semver: 7.8.5
-      webpack: 5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)
+      webpack: 5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)
     transitivePeerDependencies:
       - typescript
 
@@ -26406,18 +26417,6 @@ snapshots:
       '@swc/core': 1.15.8(@swc/helpers@0.5.19)
       esbuild: 0.28.2
 
-  terser-webpack-plugin@5.3.14(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)):
-    dependencies:
-      '@jridgewell/trace-mapping': 0.3.31
-      jest-worker: 27.5.1
-      schema-utils: 4.3.3
-      serialize-javascript: 6.0.2
-      terser: 5.51.2
-      webpack: 5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)
-    optionalDependencies:
-      '@swc/core': 1.15.8(@swc/helpers@0.5.19)
-      esbuild: 0.28.2
-
   terser@5.31.0:
     dependencies:
       '@jridgewell/source-map': 0.3.6
@@ -26799,6 +26798,15 @@ snapshots:
       punycode: 2.3.1
 
   url-join@4.0.1: {}
+
+  url-loader@4.1.1(file-loader@6.2.0(webpack@5.111.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)(postcss@8.5.29)))(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)):
+    dependencies:
+      loader-utils: 2.0.4
+      mime-types: 2.1.35
+      schema-utils: 3.3.0
+      webpack: 5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)
+    optionalDependencies:
+      file-loader: 6.2.0(webpack@5.111.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)(postcss@8.5.29))
 
   url-loader@4.1.1(file-loader@6.2.0(webpack@5.111.0(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)(postcss@8.5.29)))(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)):
     dependencies:
@@ -27343,7 +27351,7 @@ snapshots:
       - uglify-js
     optional: true
 
-  webpackbar@6.0.1(webpack@5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)):
+  webpackbar@6.0.1(webpack@5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)):
     dependencies:
       ansi-escapes: 4.3.2
       chalk: 4.1.2
@@ -27352,7 +27360,7 @@ snapshots:
       markdown-table: 2.0.0
       pretty-time: 1.1.0
       std-env: 3.10.0
-      webpack: 5.109.2(@swc/core@1.15.8(@swc/helpers@0.5.19))(clean-css@5.3.3)(cssnano@6.1.2(postcss@8.5.29))(esbuild@0.28.2)(html-minifier-terser@7.2.0)(postcss@8.5.29)
+      webpack: 5.101.3(@swc/core@1.15.8(@swc/helpers@0.5.19))(esbuild@0.28.2)
       wrap-ansi: 7.0.0
 
   websocket-driver@0.7.4:
