@@ -80,10 +80,10 @@
     "@types/jest": "30.0.0",
     "@types/node": "20.19.9",
     "@typescript-eslint/utils": "8.71.1",
-    "@vitest/browser-playwright": "4.1.10",
-    "@vitest/coverage-v8": "4.1.10",
+    "@vitest/browser-playwright": "5.0.4",
+    "@vitest/coverage-v8": "5.0.4",
     "@vitest/eslint-plugin": "1.6.9",
-    "@vitest/ui": "4.1.10",
+    "@vitest/ui": "5.0.4",
     "angular-eslint": "22.5.0",
     "baseline-browser-mapping": "2.10.0",
     "dotenv": "10.0.0",
@@ -109,7 +109,7 @@
     "typescript-eslint": "8.71.1",
     "unplugin-swc": "1.5.1",
     "vite": "8.3.4",
-    "vitest": "4.1.10",
+    "vitest": "5.0.4",
     "zx": "8.8.5"
   }
 }
