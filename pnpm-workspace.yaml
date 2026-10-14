@@ -11,8 +11,3 @@ allowBuilds:
   msgpackr-extract: true
   nx: true
   unrs-resolver: true
-overrides:
-  # webpackbar@6 (used by Docusaurus 3.8) is incompatible with newer webpack ProgressPlugin schema
-  '@docusaurus/bundler>webpack': 5.101.3
-  '@docusaurus/core>webpack': 5.101.3
-  '@docusaurus/types>webpack': 5.101.3
