@@ -1,4 +1,4 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Service } from '@angular/core';
 import { defer, Observable, of } from 'rxjs';
 import { Recipe } from '../recipe/recipe';
 import { LocalStorage } from '../shared/local-storage';
@@ -9,9 +9,7 @@ export interface MealRepositoryDef {
   getMeals(): Observable<Recipe[]>;
 }
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class MealRepository implements MealRepositoryDef {
   private _localStorage = inject(LocalStorage);
 

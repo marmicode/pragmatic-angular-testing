@@ -1,11 +1,9 @@
 import { distinctUntilChanged, map } from 'rxjs/operators';
 import { Observable, BehaviorSubject } from 'rxjs';
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 import { Recipe } from '../recipe/recipe';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class MealPlanner {
   recipes$: Observable<Recipe[]>;
 

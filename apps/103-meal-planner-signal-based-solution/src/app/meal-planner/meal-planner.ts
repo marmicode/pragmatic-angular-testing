@@ -1,9 +1,7 @@
-import { Injectable, signal, untracked } from '@angular/core';
+import { signal, untracked, Service } from '@angular/core';
 import { Recipe } from '../recipe/recipe';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class MealPlanner {
   private _recipes = signal<Recipe[]>([]);
 
