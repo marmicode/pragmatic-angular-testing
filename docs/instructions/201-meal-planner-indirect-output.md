@@ -72,6 +72,8 @@ pnpm cook checkout-impl
 
 ### 🎁 Tip: Provide a fake
 
+Fakes are declared with `@Service({ autoProvided: false })` so they are not automatically provided in the root injector, and must be provided explicitly:
+
 ```ts
 TestBed.configureTestingModule({
   providers: [MyRepoFake, { provide: MyRepo, useExisting: MyRepoFake }],

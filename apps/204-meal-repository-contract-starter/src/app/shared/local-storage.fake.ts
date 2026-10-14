@@ -1,9 +1,7 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 import { LocalStorage } from './local-storage';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class LocalStorageFake implements LocalStorage {
   private _map = new Map<string, string>();
 

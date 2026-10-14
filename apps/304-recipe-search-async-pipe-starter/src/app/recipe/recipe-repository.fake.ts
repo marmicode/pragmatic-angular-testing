@@ -1,7 +1,7 @@
 import {
   EnvironmentProviders,
-  Injectable,
   makeEnvironmentProviders,
+  Service,
 } from '@angular/core';
 import { defer, Observable, of } from 'rxjs';
 import { Recipe } from './recipe';
@@ -11,7 +11,7 @@ import {
 } from './recipe-filter-criteria';
 import { RecipeRepository, RecipeRepositoryDef } from './recipe-repository';
 
-@Injectable()
+@Service({ autoProvided: false })
 export class RecipeRepositoryFake implements RecipeRepositoryDef {
   private _recipes: Recipe[] = [];
 

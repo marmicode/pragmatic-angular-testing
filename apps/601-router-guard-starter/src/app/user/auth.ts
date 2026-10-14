@@ -1,9 +1,7 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Service } from '@angular/core';
 import { CurrentUser } from './current-user';
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class Auth {
   private _currentUser = inject(CurrentUser);
 

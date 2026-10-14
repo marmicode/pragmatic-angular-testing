@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Service } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Recipe } from '../recipe/recipe';
 
@@ -8,9 +8,7 @@ export interface MealRepositoryDef {
   getMeals(): Observable<Recipe[]>;
 }
 
-@Injectable({
-  providedIn: 'root',
-})
+@Service()
 export class MealRepository implements MealRepositoryDef {
   addMeal(meal: Recipe): Observable<void> {
     throw new Error('🚧 work in progress!');
